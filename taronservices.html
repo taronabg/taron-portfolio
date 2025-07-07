@@ -1,0 +1,655 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Services - Taron Abgaryan | Web Designer & Developer</title>
+    <link href="https://fonts.googleapis.com/css?family=Inter:400,500,600,700&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            background: #0a0a0a;
+            color: #ffffff;
+            line-height: 1.6;
+        }
+
+        /* Navigation */
+        .navbar {
+            background: rgba(10, 10, 10, 0.95);
+            backdrop-filter: blur(10px);
+            padding: 1rem 2rem;
+            position: fixed;
+            top: 0;
+            width: 100%;
+            z-index: 1000;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        .nav-container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .logo {
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: #fff;
+            text-decoration: none;
+        }
+
+        .nav-links {
+            display: flex;
+            list-style: none;
+            gap: 3rem;
+            align-items: center;
+        }
+
+        .nav-links a {
+            color: #ccc;
+            text-decoration: none;
+            transition: color 0.3s ease;
+            font-weight: 500;
+        }
+
+        .nav-links a:hover {
+            color: #00d4ff;
+        }
+
+        /* Main Content */
+        .main-content {
+            margin-top: 120px;
+            padding: 4rem 2rem;
+            max-width: 1200px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .page-header {
+            text-align: center;
+            margin-bottom: 4rem;
+        }
+
+        .page-header h1 {
+            font-size: 3.5rem;
+            margin-bottom: 1rem;
+            font-weight: 700;
+            background: linear-gradient(135deg, #00d4ff, #0099cc);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .page-header p {
+            font-size: 1.2rem;
+            color: #ccc;
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+        .services-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 2rem;
+            margin-bottom: 4rem;
+        }
+
+        .service-card {
+            background: rgba(255, 255, 255, 0.05);
+            padding: 2.5rem;
+            border-radius: 12px;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            transition: all 0.3s ease;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .service-card:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 20px 40px rgba(0, 212, 255, 0.2);
+            background: rgba(255, 255, 255, 0.08);
+        }
+
+        .service-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 3px;
+            background: linear-gradient(90deg, #00d4ff, #0099cc);
+        }
+
+        .service-icon {
+            font-size: 3rem;
+            margin-bottom: 1.5rem;
+            display: block;
+        }
+
+        .service-card h3 {
+            font-size: 1.8rem;
+            margin-bottom: 1rem;
+            color: #fff;
+            font-weight: 600;
+        }
+
+        .service-card p {
+            color: #ccc;
+            margin-bottom: 1.5rem;
+            line-height: 1.6;
+        }
+
+        .service-features {
+            list-style: none;
+            margin-bottom: 2rem;
+        }
+
+        .service-features li {
+            color: #ccc;
+            margin-bottom: 0.8rem;
+            padding-left: 1.5rem;
+            position: relative;
+        }
+
+        .service-features li::before {
+            content: '✓';
+            position: absolute;
+            left: 0;
+            color: #00d4ff;
+            font-weight: bold;
+        }
+
+        .service-price {
+            font-size: 2rem;
+            font-weight: 700;
+            color: #00d4ff;
+            margin-bottom: 1rem;
+        }
+
+        .service-button {
+            display: inline-block;
+            padding: 1rem 2rem;
+            background: linear-gradient(135deg, #00d4ff, #0099cc);
+            color: #000;
+            text-decoration: none;
+            border-radius: 8px;
+            font-weight: 600;
+            transition: all 0.3s ease;
+            border: 2px solid transparent;
+            width: 100%;
+            text-align: center;
+        }
+
+        .service-button:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 10px 30px rgba(0, 212, 255, 0.3);
+        }
+
+        .process-section {
+            background: rgba(255, 255, 255, 0.05);
+            padding: 4rem 2rem;
+            border-radius: 12px;
+            margin: 4rem 0;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        .process-section h2 {
+            font-size: 2.5rem;
+            margin-bottom: 3rem;
+            color: #fff;
+            text-align: center;
+        }
+
+        .process-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+        }
+
+        .process-step {
+            text-align: center;
+            padding: 2rem;
+            background: rgba(255, 255, 255, 0.05);
+            border-radius: 12px;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            transition: transform 0.3s ease;
+        }
+
+        .process-step:hover {
+            transform: translateY(-5px);
+        }
+
+        .step-number {
+            width: 60px;
+            height: 60px;
+            background: linear-gradient(135deg, #00d4ff, #0099cc);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: #000;
+            margin: 0 auto 1rem;
+        }
+
+        .process-step h3 {
+            font-size: 1.3rem;
+            margin-bottom: 1rem;
+            color: #fff;
+        }
+
+        .process-step p {
+            color: #ccc;
+            font-size: 0.9rem;
+        }
+
+        .cta-section {
+            text-align: center;
+            padding: 4rem 0;
+        }
+
+        .cta-section h2 {
+            font-size: 2.5rem;
+            margin-bottom: 1rem;
+            color: #fff;
+        }
+
+        .cta-section p {
+            font-size: 1.1rem;
+            color: #ccc;
+            margin-bottom: 2rem;
+            max-width: 600px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .cta-buttons {
+            display: flex;
+            gap: 1rem;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+
+        .cta-button {
+            display: inline-block;
+            padding: 1rem 2rem;
+            background: linear-gradient(135deg, #00d4ff, #0099cc);
+            color: #000;
+            text-decoration: none;
+            border-radius: 8px;
+            font-weight: 600;
+            transition: all 0.3s ease;
+            border: 2px solid transparent;
+        }
+
+        .cta-button:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 10px 30px rgba(0, 212, 255, 0.3);
+        }
+
+        .cta-button.secondary {
+            background: transparent;
+            color: #00d4ff;
+            border: 2px solid #00d4ff;
+        }
+
+        .cta-button.secondary:hover {
+            background: rgba(0, 212, 255, 0.1);
+        }
+
+        /* Footer */
+        .footer {
+            background: #0a0a0a;
+            padding: 3rem 2rem 1rem;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        .footer-content {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+            margin-bottom: 2rem;
+        }
+
+        .footer-section h3 {
+            color: #fff;
+            font-size: 1.2rem;
+            margin-bottom: 1rem;
+        }
+
+        .footer-section p,
+        .footer-section a {
+            color: #ccc;
+            text-decoration: none;
+            margin-bottom: 0.5rem;
+            display: block;
+        }
+
+        .footer-section a:hover {
+            color: #00d4ff;
+        }
+
+        .footer-bottom {
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            padding-top: 1rem;
+            text-align: center;
+            color: #999;
+            font-size: 0.9rem;
+        }
+
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            .navbar {
+                padding: 1rem;
+            }
+            
+            .nav-links {
+                display: none;
+            }
+            
+            .main-content {
+                margin-top: 100px;
+                padding: 2rem 1rem;
+            }
+            
+            .page-header h1 {
+                font-size: 2.5rem;
+            }
+            
+            .page-header p {
+                font-size: 1rem;
+            }
+            
+            .services-grid {
+                grid-template-columns: 1fr;
+                gap: 1.5rem;
+            }
+            
+            .service-card {
+                padding: 2rem;
+            }
+            
+            .process-grid {
+                grid-template-columns: 1fr;
+                gap: 1.5rem;
+            }
+            
+            .cta-section h2 {
+                font-size: 2rem;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .page-header h1 {
+                font-size: 2rem;
+            }
+            
+            .service-card {
+                padding: 1.5rem;
+            }
+            
+            .service-price {
+                font-size: 1.5rem;
+            }
+            
+            .cta-buttons {
+                flex-direction: column;
+                align-items: center;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="navbar">
+        <div class="nav-container">
+            <a href="portfolio.html" class="logo">TARON ABGARYAN</a>
+            <ul class="nav-links">
+                <li><a href="portfolio.html">Home</a></li>
+                <li><a href="about.html">About</a></li>
+                <li><a href="services.html">Services</a></li>
+                <li><a href="portfolio.html#contact">Contact</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <!-- Main Content -->
+    <div class="main-content">
+        <div class="page-header">
+            <h1>My Services</h1>
+            <p>Comprehensive web design and development services tailored to help your business succeed online.</p>
+        </div>
+
+        <div class="services-grid">
+            <div class="service-card">
+                <div class="service-icon">🎨</div>
+                <h3>Basic Website</h3>
+                <p>Perfect for small businesses and startups looking to establish their online presence.</p>
+                <ul class="service-features">
+                    <li>Custom design (3 pages)</li>
+                    <li>Mobile responsive</li>
+                    <li>Contact form</li>
+                    <li>Basic SEO setup</li>
+                    <li>Social media integration</li>
+                    <li>1 month of support</li>
+                </ul>
+                <div class="service-price">$500</div>
+                <a href="portfolio.html#contact" class="service-button">Get Started</a>
+            </div>
+
+            <div class="service-card">
+                <div class="service-icon">💻</div>
+                <h3>Professional Website</h3>
+                <p>Comprehensive solution for growing businesses that need a powerful online presence.</p>
+                <ul class="service-features">
+                    <li>Custom design (5-7 pages)</li>
+                    <li>Mobile responsive</li>
+                    <li>Contact forms & integrations</li>
+                    <li>Advanced SEO optimization</li>
+                    <li>Blog section</li>
+                    <li>Analytics setup</li>
+                    <li>3 months of support</li>
+                </ul>
+                <div class="service-price">$1,200</div>
+                <a href="portfolio.html#contact" class="service-button">Get Started</a>
+            </div>
+
+            <div class="service-card">
+                <div class="service-icon">🚀</div>
+                <h3>E-commerce Website</h3>
+                <p>Complete online store solution for businesses ready to sell products online.</p>
+                <ul class="service-features">
+                    <li>Custom e-commerce design</li>
+                    <li>Product catalog</li>
+                    <li>Secure payment integration</li>
+                    <li>Inventory management</li>
+                    <li>Order tracking</li>
+                    <li>Customer accounts</li>
+                    <li>6 months of support</li>
+                </ul>
+                <div class="service-price">$2,500</div>
+                <a href="portfolio.html#contact" class="service-button">Get Started</a>
+            </div>
+
+            <div class="service-card">
+                <div class="service-icon">⚡</div>
+                <h3>Website Maintenance</h3>
+                <p>Keep your website secure, updated, and performing at its best with ongoing support.</p>
+                <ul class="service-features">
+                    <li>Regular security updates</li>
+                    <li>Performance optimization</li>
+                    <li>Content updates</li>
+                    <li>Backup management</li>
+                    <li>Technical support</li>
+                    <li>Monthly reports</li>
+                </ul>
+                <div class="service-price">$150/month</div>
+                <a href="portfolio.html#contact" class="service-button">Get Started</a>
+            </div>
+
+            <div class="service-card">
+                <div class="service-icon">🔍</div>
+                <h3>SEO Optimization</h3>
+                <p>Improve your search engine rankings and attract more organic traffic to your website.</p>
+                <ul class="service-features">
+                    <li>Keyword research</li>
+                    <li>On-page optimization</li>
+                    <li>Content optimization</li>
+                    <li>Technical SEO audit</li>
+                    <li>Local SEO setup</li>
+                    <li>Monthly reporting</li>
+                </ul>
+                <div class="service-price">$300/month</div>
+                <a href="portfolio.html#contact" class="service-button">Get Started</a>
+            </div>
+
+            <div class="service-card">
+                <div class="service-icon">📱</div>
+                <h3>Custom Development</h3>
+                <p>Bespoke web applications and custom functionality tailored to your specific needs.</p>
+                <ul class="service-features">
+                    <li>Custom functionality</li>
+                    <li>API integrations</li>
+                    <li>Database design</li>
+                    <li>User authentication</li>
+                    <li>Advanced features</li>
+                    <li>Ongoing support</li>
+                </ul>
+                <div class="service-price">Custom Quote</div>
+                <a href="portfolio.html#contact" class="service-button">Get Quote</a>
+            </div>
+        </div>
+
+        <div class="process-section">
+            <h2>My Process</h2>
+            <div class="process-grid">
+                <div class="process-step">
+                    <div class="step-number">1</div>
+                    <h3>Discovery</h3>
+                    <p>I'll learn about your business, goals, target audience, and requirements to create the perfect solution.</p>
+                </div>
+                
+                <div class="process-step">
+                    <div class="step-number">2</div>
+                    <h3>Planning</h3>
+                    <p>I'll create a detailed project plan including site structure, design concepts, and development timeline.</p>
+                </div>
+                
+                <div class="process-step">
+                    <div class="step-number">3</div>
+                    <h3>Design</h3>
+                    <p>I'll design your website with modern aesthetics, focusing on user experience and conversion optimization.</p>
+                </div>
+                
+                <div class="process-step">
+                    <div class="step-number">4</div>
+                    <h3>Development</h3>
+                    <p>I'll build your website with clean, efficient code that's fast, secure, and search engine friendly.</p>
+                </div>
+                
+                <div class="process-step">
+                    <div class="step-number">5</div>
+                    <h3>Testing</h3>
+                    <p>I'll thoroughly test your website across all devices and browsers to ensure perfect functionality.</p>
+                </div>
+                
+                <div class="process-step">
+                    <div class="step-number">6</div>
+                    <h3>Launch</h3>
+                    <p>I'll deploy your website and provide training on how to manage and update your new site.</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="cta-section">
+            <h2>Ready to Start Your Project?</h2>
+            <p>Let's discuss your needs and create a custom solution that will help your business grow online. Get in touch today for a free consultation.</p>
+            <div class="cta-buttons">
+                <a href="portfolio.html#contact" class="cta-button">Start Your Project</a>
+                <a href="portfolio.html#portfolio" class="cta-button secondary">View My Work</a>
+            </div>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="footer-content">
+            <div class="footer-section">
+                <h3>Taron Abgaryan</h3>
+                <p>Professional web designer and developer creating modern, responsive websites that help businesses grow and succeed online.</p>
+            </div>
+            
+            <div class="footer-section">
+                <h3>Services</h3>
+                <a href="services.html">Web Design</a>
+                <a href="services.html">Web Development</a>
+                <a href="services.html">Responsive Design</a>
+                <a href="services.html">SEO Optimization</a>
+            </div>
+            
+            <div class="footer-section">
+                <h3>Portfolio</h3>
+                <a href="portfolio.html#portfolio">Recent Work</a>
+                <a href="portfolio.html#portfolio">Case Studies</a>
+                <a href="portfolio.html#portfolio">Client Testimonials</a>
+            </div>
+            
+            <div class="footer-section">
+                <h3>Contact</h3>
+                <a href="portfolio.html#contact">Get In Touch</a>
+                <a href="portfolio.html#contact">Request Quote</a>
+                <a href="portfolio.html#contact">Project Consultation</a>
+            </div>
+        </div>
+        
+        <div class="footer-bottom">
+            <p>&copy; 2025 Taron Abgaryan. All rights reserved. | Web Designer & Developer</p>
+        </div>
+    </footer>
+
+    <script>
+        // Add scroll effect to navbar
+        window.addEventListener('scroll', function() {
+            const navbar = document.querySelector('.navbar');
+            if (window.scrollY > 50) {
+                navbar.style.backgroundColor = 'rgba(10, 10, 10, 0.98)';
+            } else {
+                navbar.style.backgroundColor = 'rgba(10, 10, 10, 0.95)';
+            }
+        });
+
+        // Animate elements on scroll
+        const observerOptions = {
+            threshold: 0.3
+        };
+
+        const observer = new IntersectionObserver(function(entries) {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.style.opacity = '1';
+                    entry.target.style.transform = 'translateY(0)';
+                }
+            });
+        }, observerOptions);
+
+        // Observe service cards and process steps
+        document.querySelectorAll('.service-card, .process-step').forEach(item => {
+            item.style.opacity = '0';
+            item.style.transform = 'translateY(30px)';
+            item.style.transition = 'all 0.6s ease';
+            observer.observe(item);
+        });
+    </script>
+</body>
+</html>

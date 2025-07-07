@@ -1,0 +1,625 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>JP Fitness Project - Taron Abgaryan</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Poppins', sans-serif;
+            background: #0a0a0a;
+            color: #fff;
+            line-height: 1.6;
+        }
+
+        /* Navigation */
+        .navbar {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            background: rgba(0, 0, 0, 0.4);
+            backdrop-filter: blur(10px);
+            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+            z-index: 1000;
+            transition: background-color 0.3s ease;
+        }
+
+        .nav-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 1rem 2rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            font-size: 1.5rem;
+            font-weight: 800;
+            color: #00d4ff;
+            text-decoration: none;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .logo::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(0, 212, 255, 0.2), transparent);
+            transition: left 0.5s ease;
+        }
+
+        .logo:hover::before {
+            left: 100%;
+        }
+
+        .nav-links {
+            display: flex;
+            list-style: none;
+            gap: 3rem;
+            align-items: center;
+        }
+
+        .nav-links a {
+            color: #fff;
+            text-decoration: none;
+            font-weight: 500;
+            margin-left: 2rem;
+            position: relative;
+            transition: color 0.6s;
+        }
+
+        .nav-links a:hover {
+            color: #00d4ff;
+        }
+
+        .instagram-link {
+            display: flex;
+            align-items: center;
+            padding: 0.5rem;
+        }
+
+        .instagram-icon {
+            width: 24px;
+            height: 24px;
+            filter: brightness(0) invert(1);
+            transition: transform 0.3s;
+        }
+
+        .instagram-link:hover .instagram-icon {
+            transform: scale(1.1);
+        }
+
+        /* Mobile Menu Styles */
+        .mobile-menu-btn {
+            display: none;
+            cursor: pointer;
+            padding: 0.5rem;
+        }
+
+        .menu-icon {
+            width: 24px;
+            height: 24px;
+            filter: brightness(0) invert(1);
+        }
+
+        .mobile-menu-overlay {
+            position: fixed;
+            top: -100vh;
+            left: 0;
+            width: 100%;
+            height: 100vh;
+            background: rgba(0, 0, 0, 0.95);
+            backdrop-filter: blur(10px);
+            z-index: 1000;
+            display: flex;
+            flex-direction: column;
+            justify-content: flex-start;
+            align-items: center;
+            padding-top: 2rem;
+            transition: top 0.6s ease-in-out;
+        }
+
+        .mobile-menu-overlay.active {
+            top: 0;
+        }
+
+        .mobile-menu-header {
+            position: absolute;
+            top: 2rem;
+            left: 2rem;
+        }
+
+        .close-icon {
+            width: 24px;
+            height: 24px;
+            cursor: pointer;
+            filter: brightness(0) invert(1);
+            transition: transform 0.3s ease;
+        }
+
+        .close-icon:hover {
+            transform: scale(1.1);
+        }
+
+        .mobile-menu-links {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+            text-align: center;
+            margin-top: 4rem;
+        }
+
+        .mobile-menu-links li {
+            margin-bottom: 2rem;
+        }
+
+        .mobile-menu-links li a {
+            color: #fff;
+            text-decoration: none;
+            font-size: 1.5rem;
+            font-weight: 600;
+            transition: color 0.3s ease;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 0.5rem;
+        }
+
+        .mobile-menu-links li a:hover {
+            color: #00d4ff;
+        }
+
+        .mobile-menu-links .instagram-icon {
+            width: 24px;
+            height: 24px;
+        }
+
+        /* Blog Section */
+        .blog-section {
+            padding: 8rem 2rem 6rem;
+            background: linear-gradient(135deg, #0a0a0a 0%, #1a1a1a 50%, #0f1419 100%);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .blog-section::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: 
+                radial-gradient(circle at 20% 80%, rgba(0, 212, 255, 0.1) 0%, transparent 50%),
+                radial-gradient(circle at 80% 20%, rgba(0, 153, 204, 0.05) 0%, transparent 50%);
+            pointer-events: none;
+        }
+
+        .container {
+            max-width: 900px;
+            margin: 0 auto;
+            position: relative;
+            z-index: 2;
+        }
+
+        .blog-header {
+            text-align: center;
+            margin-bottom: 4rem;
+        }
+
+        .blog-header h1 {
+            font-size: 3.5rem;
+            margin-bottom: 1.5rem;
+            font-weight: 800;
+            background: linear-gradient(135deg, #00d4ff, #0099cc);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            letter-spacing: -0.02em;
+        }
+
+        .blog-header .subtitle {
+            font-size: 1.3rem;
+            color: #e0e0e0;
+            margin-bottom: 2rem;
+        }
+
+        .blog-meta {
+            display: flex;
+            justify-content: center;
+            gap: 2rem;
+            color: #999;
+            font-size: 0.9rem;
+        }
+
+        .blog-content {
+            background: rgba(255, 255, 255, 0.05);
+            padding: 3rem;
+            border-radius: 16px;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(10px);
+        }
+
+        .blog-content h2 {
+            font-size: 2rem;
+            margin: 2.5rem 0 1.5rem 0;
+            color: #00d4ff;
+            font-weight: 700;
+        }
+
+        .blog-content h3 {
+            font-size: 1.5rem;
+            margin: 2rem 0 1rem 0;
+            color: #fff;
+            font-weight: 600;
+        }
+
+        .blog-content p {
+            font-size: 1.1rem;
+            color: #e0e0e0;
+            margin-bottom: 1.5rem;
+            line-height: 1.8;
+        }
+
+        .blog-content ul {
+            margin: 1.5rem 0;
+            padding-left: 2rem;
+        }
+
+        .blog-content li {
+            color: #e0e0e0;
+            margin-bottom: 0.8rem;
+            line-height: 1.6;
+        }
+
+        .highlight-box {
+            background: rgba(0, 212, 255, 0.1);
+            border: 1px solid rgba(0, 212, 255, 0.3);
+            border-radius: 12px;
+            padding: 2rem;
+            margin: 2rem 0;
+        }
+
+        .highlight-box h3 {
+            color: #00d4ff;
+            margin-bottom: 1rem;
+        }
+
+        .project-image {
+            width: 100%;
+            max-width: 800px;
+            height: auto;
+            background: linear-gradient(135deg, #00d4ff, #0099cc);
+            border-radius: 12px;
+            margin: 2rem auto;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 2rem;
+            color: #000;
+        }
+
+        .cta-section {
+            text-align: center;
+            margin-top: 4rem;
+            padding: 3rem;
+            background: rgba(255, 255, 255, 0.05);
+            border-radius: 16px;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        .cta-button {
+            display: inline-block;
+            padding: 1rem 2rem;
+            background: linear-gradient(135deg, #00d4ff, #0099cc);
+            color: #000;
+            text-decoration: none;
+            border-radius: 8px;
+            font-weight: 600;
+            transition: all 0.3s ease;
+            margin: 0 1rem;
+        }
+
+        .cta-button:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 10px 30px rgba(0, 212, 255, 0.3);
+        }
+
+        .cta-button.secondary {
+            background: transparent;
+            color: #00d4ff;
+            border: 2px solid #00d4ff;
+        }
+
+        .cta-button.secondary:hover {
+            background: rgba(0, 212, 255, 0.1);
+        }
+
+        /* Footer */
+        .footer {
+            background: #0a0a0a;
+            padding: 3rem 2rem 1rem;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        .footer-content {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+            margin-bottom: 2rem;
+        }
+
+        .footer-section h3 {
+            color: #fff;
+            font-size: 1.2rem;
+            margin-bottom: 1rem;
+        }
+
+        .footer-section p,
+        .footer-section a {
+            color: #ccc;
+            text-decoration: none;
+            margin-bottom: 0.5rem;
+            display: block;
+        }
+
+        .footer-section a:hover {
+            color: #00d4ff;
+        }
+
+        .footer-bottom {
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            padding-top: 1rem;
+            text-align: center;
+            color: #999;
+            font-size: 0.9rem;
+        }
+
+        /* Responsive Design */
+        @media (max-width: 800px) {
+            .navbar {
+                padding: 1rem;
+            }
+            
+            .nav-links {
+                display: none;
+            }
+
+            .mobile-menu-btn {
+                display: block;
+            }
+            
+            .blog-header h1 {
+                font-size: 2.5rem;
+            }
+            
+            .blog-content {
+                padding: 2rem;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .blog-header h1 {
+                font-size: 2rem;
+            }
+            
+            .blog-content {
+                padding: 1.5rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="navbar">
+        <div class="nav-container">
+            <a href="index.html" class="logo">TARON ABGARYAN</a>
+            <ul class="nav-links">
+                <li><a href="services.html">Services</a></li>
+                <li><a href="portfolio.html">Portfolio</a></li>
+                <li><a href="contact.html">Contact</a></li>
+                <li>
+                  <a href="https://www.instagram.com/taron_abg/" class="instagram-link" target="_blank" aria-label="Instagram">
+                    <img src="instagram.png" alt="Instagram" class="instagram-icon">
+                  </a>
+                </li>
+            </ul>
+            <div class="mobile-menu-btn">
+                <img src="menu.png" alt="Menu" class="menu-icon">
+            </div>
+        </div>
+    </nav>
+
+    <!-- Mobile Menu Overlay -->
+    <div class="mobile-menu-overlay" id="mobileMenu">
+        <div class="mobile-menu-header">
+            <img src="close.png" alt="Close" class="close-icon" id="closeMenu">
+        </div>
+        <ul class="mobile-menu-links">
+            <li><a href="services.html">Services</a></li>
+            <li><a href="portfolio.html">Portfolio</a></li>
+            <li><a href="contact.html">Contact</a></li>
+            <li>
+                <a href="https://www.instagram.com/taron_abg/" target="_blank" aria-label="Instagram">
+                    <img src="instagram.png" alt="Instagram" class="instagram-icon">
+                    <span>Instagram</span>
+                </a>
+            </li>
+        </ul>
+    </div>
+
+    <!-- Blog Section -->
+    <section class="blog-section">
+        <div class="container">
+            <div class="blog-header">
+                <h1>JP Fitness Website Project</h1>
+                <p class="subtitle">How I helped a fitness trainer establish a professional online presence</p>
+                <div class="blog-meta">
+                    <span>📅 July 2025</span>
+                    <span>⏱️ 2 weeks</span>
+                    <span>🎯 Business Website</span>
+                </div>
+            </div>
+            
+            <div class="blog-content">
+                <h2>The Challenge</h2>
+                <p>Jacob Perry, a dedicated fitness trainer in North Hollywood, needed a professional website to showcase his services and attract new clients. His business was growing through word-of-mouth, but he lacked a strong online presence that could help him reach more potential clients and establish credibility in the competitive fitness industry.</p>
+                
+                <h2>Project Goals</h2>
+                <ul>
+                    <li>Create a modern, professional website that reflects Jacob's expertise and personality</li>
+                    <li>Showcase his fitness services and training programs clearly</li>
+                    <li>Make it easy for potential clients to contact him</li>
+                    <li>Ensure the website works perfectly on all devices (mobile, tablet, desktop)</li>
+                    <li>Build a foundation for future business growth</li>
+                </ul>
+
+                <h2>The Solution</h2>
+                <p>I designed and developed a complete fitness business website that perfectly represents Jacob's brand and makes it easy for clients to learn about his services and get in touch. The website features a clean, modern design that emphasizes professionalism while maintaining an approachable feel that matches Jacob's training style.</p>
+
+                <div class="project-image">
+                    <img src="jpweb.png" alt="JP Fitness Website" style="width: 100%; height: auto; border-radius: 12px;">
+                </div>
+
+                <h2>Key Features Delivered</h2>
+                
+                <h3>Professional Homepage</h3>
+                <p>The homepage immediately communicates Jacob's expertise and approach to fitness. It features compelling copy that speaks directly to his target audience - people looking to improve their fitness and work with a knowledgeable trainer.</p>
+
+                <h3>Service Showcase</h3>
+                <p>A dedicated services page clearly outlines Jacob's training programs, including personal training, group sessions, and specialized fitness plans. Each service is presented with benefits that potential clients can easily understand.</p>
+
+                <h3>About Section</h3>
+                <p>An engaging about page tells Jacob's story, highlighting his experience, certifications, and passion for helping clients achieve their fitness goals. This builds trust and credibility with potential clients.</p>
+
+                <h3>Contact Integration</h3>
+                <p>Multiple contact options make it easy for potential clients to reach Jacob. The website includes his phone number, email, and location, ensuring no potential client falls through the cracks.</p>
+
+                <div class="highlight-box">
+                    <h3>Technical Excellence</h3>
+                    <p>The website is built with modern web technologies ensuring fast loading times, mobile responsiveness, and a smooth user experience across all devices. This technical foundation will support Jacob's business growth for years to come.</p>
+                </div>
+
+                <h2>Results & Impact</h2>
+                <p>Since launching the website, Jacob has seen increased inquiries from potential clients who found him online. The professional presentation has helped him stand out in the competitive fitness market and has given him confidence when sharing his business with potential clients.</p>
+
+                <ul>
+                    <li>✅ Professional online presence established</li>
+                    <li>✅ Clear service presentation</li>
+                    <li>✅ Mobile-friendly design</li>
+                    <li>✅ Easy contact methods</li>
+                    <li>✅ Foundation for business growth</li>
+                </ul>
+
+                <h2>What I Learned</h2>
+                <p>This project was my first real client work, and it taught me invaluable lessons about understanding client needs, managing expectations, and delivering a product that truly serves a business purpose. Working with Jacob helped me understand that great web design isn't just about making things look good - it's about creating tools that help businesses grow and succeed.</p>
+
+                <p>The project reinforced the importance of clear communication, understanding the client's business goals, and creating solutions that are both beautiful and functional. It was incredibly rewarding to see how a well-designed website can make a real difference in someone's business.</p>
+
+                <div class="cta-section">
+                    <h3>Ready to Transform Your Business Online?</h3>
+                    <p>Whether you're a fitness trainer, restaurant owner, or any business professional, I can help you create a website that showcases your expertise and attracts your ideal clients.</p>
+                    <a href="contact.html" class="cta-button">Get Started</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="footer-content">
+            <div class="footer-section">
+                <h3>Taron Abgaryan</h3>
+                <p>Professional web designer and developer creating modern, responsive websites that help businesses grow and succeed online.</p>
+            </div>
+            
+            <div class="footer-section">
+                <h3>Links</h3>
+                <a href="index.html">Home</a>
+                <a href="services.html">Services</a>
+                <a href="portfolio.html">Portfolio</a>
+                <a href="contact.html">Contact</a>
+                <a href="terms.html">Terms & Privacy</a>
+            </div>
+            
+            <div class="footer-section">
+                <h3>Contact</h3>
+                <a href="https://www.instagram.com/taron_abg/" target="_blank" style="display: flex; align-items: center; gap: 0.5rem;">
+                    Instagram
+                    <img src="instagram.png" alt="Instagram" style="width: 16px; height: 16px; filter: brightness(0) invert(1);">
+                </a>
+                <p style="margin-top: 1rem; font-size: 0.9rem; color: #999;">
+                    abgtaron@gmail.com 📧<br>
+                    <a href="tel:+16262253435" style="color: #999; text-decoration: none;">(626) 225-3435 📱</a>
+                    North Hollywood, CA 📍
+                </p>
+            </div>
+        </div>
+        
+        <div class="footer-bottom">
+            <p>&copy; 2025 Taron Abgaryan. All rights reserved. | Web Designer & Developer</p>
+        </div>
+    </footer>
+
+    <script>
+        // Add scroll effect to navbar
+        window.addEventListener('scroll', function() {
+            const navbar = document.querySelector('.navbar');
+            if (window.scrollY > 50) {
+                navbar.style.backgroundColor = 'rgba(0, 0, 0, 0.6)';
+            } else {
+                navbar.style.backgroundColor = 'rgba(0, 0, 0, 0.4)';
+            }
+        });
+
+        // Mobile menu functionality
+        const mobileMenuBtn = document.querySelector('.mobile-menu-btn');
+        const mobileMenu = document.getElementById('mobileMenu');
+        const closeMenuBtn = document.getElementById('closeMenu');
+
+        // Open mobile menu
+        mobileMenuBtn.addEventListener('click', function() {
+            mobileMenu.classList.add('active');
+            document.body.style.overflow = 'hidden'; // Prevent background scrolling
+        });
+
+        // Close mobile menu
+        closeMenuBtn.addEventListener('click', function() {
+            mobileMenu.classList.remove('active');
+            document.body.style.overflow = ''; // Restore scrolling
+        });
+
+        // Close mobile menu when clicking on a link
+        const mobileMenuLinks = document.querySelectorAll('.mobile-menu-links a');
+        mobileMenuLinks.forEach(link => {
+            link.addEventListener('click', function() {
+                mobileMenu.classList.remove('active');
+                document.body.style.overflow = '';
+            });
+        });
+
+        // Close mobile menu when clicking outside
+        mobileMenu.addEventListener('click', function(e) {
+            if (e.target === mobileMenu) {
+                mobileMenu.classList.remove('active');
+                document.body.style.overflow = '';
+            }
+        });
+    </script>
+</body>
+</html> 
