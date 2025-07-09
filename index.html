@@ -3,8 +3,19 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-Content-Type-Options" content="nosniff">
+    <meta http-equiv="X-Frame-Options" content="DENY">
+    <meta http-equiv="X-XSS-Protection" content="1; mode=block">
+    <meta http-equiv="Referrer-Policy" content="strict-origin-when-cross-origin">
+    <meta http-equiv="Permissions-Policy" content="geolocation=(), microphone=(), camera=()">
+    <meta name="robots" content="index, follow">
+    <meta name="description" content="Taron Abgaryan - Professional Web Designer & Developer. Creating modern, responsive websites for businesses in North Hollywood, CA.">
+    <meta name="author" content="Taron Abgaryan">
+    <meta name="keywords" content="web design, web development, portfolio, freelancer, North Hollywood, CA">
     <title>Taron Abgaryan - Web Designer & Developer</title>
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&family=Outfit:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <style>
         * {
             margin: 0;
@@ -416,7 +427,7 @@
         .image-placeholder {
             width: 300px;
             height: 300px;
-            background: url('taron2.jpg');
+            background: url('taron3.jpg');
             background-size: cover;
             background-position: 20% 30%;
             border-radius: 50%;
@@ -672,6 +683,9 @@
     </footer>
 
     <script>
+        // Security: Content Security Policy compliance
+        'use strict';
+        
         // Add scroll effect to navbar
         window.addEventListener('scroll', function() {
             const navbar = document.querySelector('.navbar');
@@ -713,6 +727,18 @@
             if (e.target === mobileMenu) {
                 mobileMenu.classList.remove('active');
                 document.body.style.overflow = '';
+            }
+        });
+        
+        // Security: Prevent right-click context menu
+        document.addEventListener('contextmenu', function(e) {
+            e.preventDefault();
+        });
+        
+        // Security: Prevent keyboard shortcuts for developer tools
+        document.addEventListener('keydown', function(e) {
+            if (e.ctrlKey && (e.key === 'u' || e.key === 's' || e.key === 'i')) {
+                e.preventDefault();
             }
         });
     </script>

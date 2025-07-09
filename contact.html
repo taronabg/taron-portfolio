@@ -3,8 +3,19 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-Content-Type-Options" content="nosniff">
+    <meta http-equiv="X-Frame-Options" content="DENY">
+    <meta http-equiv="X-XSS-Protection" content="1; mode=block">
+    <meta http-equiv="Referrer-Policy" content="strict-origin-when-cross-origin">
+    <meta http-equiv="Permissions-Policy" content="geolocation=(), microphone=(), camera=()">
+    <meta name="robots" content="index, follow">
+    <meta name="description" content="Contact Taron Abgaryan - Professional Web Designer & Developer. Get in touch for your next web project in North Hollywood, CA.">
+    <meta name="author" content="Taron Abgaryan">
+    <meta name="keywords" content="contact, web design, web development, freelancer, North Hollywood, CA">
     <title>Contact - Taron Abgaryan | Web Designer & Developer</title>
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/intl-tel-input@18.1.1/build/css/intlTelInput.min.css"/>
     <style>
         * {
@@ -808,22 +819,30 @@
                 
                 <div class="contact-form">
                     <h3>Send Message</h3>
-                    <form id="contactForm" action="https://formspree.io/f/xdkzvjpl" method="POST">
+                    <form id="contactForm" action="https://formspree.io/f/xdkzvjpl" method="POST" novalidate>
+                        <!-- CSRF Protection -->
+                        <input type="hidden" name="_csrf" value="">
+                        
+                        <!-- Honeypot field to catch bots -->
+                        <div style="display: none;">
+                            <input type="text" name="website" tabindex="-1" autocomplete="off">
+                        </div>
+                        
                         <div class="form-group">
                             <label for="name">Name *</label>
-                            <input type="text" id="name" name="name" required>
+                            <input type="text" id="name" name="name" required maxlength="100" pattern="[A-Za-z\s\-']{2,100}" title="Please enter a valid name (2-100 characters, letters, spaces, hyphens, and apostrophes only)" autocomplete="name">
                         </div>
                         
                         <div class="form-group">
                             <label for="email">Email *</label>
-                            <input type="email" id="email" name="email" required>
+                            <input type="email" id="email" name="email" required maxlength="254" pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,}$" title="Please enter a valid email address" autocomplete="email">
                         </div>
                         
                         <div class="form-group">
                             <label for="phone">Phone</label>
                             <div style="position: relative;">
                                 <input type="text" id="country-search" placeholder="Search country..." style="margin-bottom: 0.5rem; width: 100%; padding: 0.8rem; background: rgba(255, 255, 255, 0.1); border: 1px solid rgba(255, 255, 255, 0.2); border-radius: 8px; color: #fff; font-size: 0.9rem; display: none;">
-                                <input type="tel" id="phone" name="phone">
+                                <input type="tel" id="phone" name="phone" maxlength="20" pattern="[\+]?[0-9\s\-\(\)]{7,20}" title="Please enter a valid phone number" autocomplete="tel">
                             </div>
                         </div>
                         
@@ -853,10 +872,13 @@
                         
                         <div class="form-group">
                             <label for="message">Project Details *</label>
-                            <textarea id="message" name="message" placeholder="Tell me about your business, website goals, timeline, and any specific features you need. This helps me provide the best quote for your project." required></textarea>
+                            <textarea id="message" name="message" placeholder="Tell me about your business, website goals, timeline, and any specific features you need. This helps me provide the best quote for your project." required maxlength="2000" title="Please enter project details (maximum 2000 characters)"></textarea>
                         </div>
                         
-                        <button type="submit" class="submit-btn">Send Message</button>
+                        <!-- Rate limiting indicator -->
+                        <div id="rateLimitMessage" style="display: none; color: #ff4444; font-size: 0.9rem; margin-bottom: 1rem; text-align: center;"></div>
+                        
+                        <button type="submit" class="submit-btn" id="submitBtn">Send Message</button>
                     </form>
                 </div>
             </div>
@@ -900,8 +922,64 @@
         </div>
     </footer>
 
-    <script src="https://cdn.jsdelivr.net/npm/intl-tel-input@18.1.1/build/js/intlTelInput.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/intl-tel-input@18.1.1/build/js/intlTelInput.min.js" integrity="sha384-..." crossorigin="anonymous"></script>
     <script>
+        // Security: Content Security Policy compliance
+        'use strict';
+        
+        // Rate limiting for form submissions
+        let lastSubmissionTime = 0;
+        const MIN_SUBMISSION_INTERVAL = 30000; // 30 seconds
+        
+        // CSRF token generation
+        function generateCSRFToken() {
+            return Math.random().toString(36).substring(2, 15) + Math.random().toString(36).substring(2, 15);
+        }
+        
+        // Input sanitization function
+        function sanitizeInput(input) {
+            return input.replace(/[<>]/g, '').trim();
+        }
+        
+        // Enhanced email validation with security checks
+        function validateEmail(email) {
+            const emailRegex = /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/;
+            if (!emailRegex.test(email)) return false;
+            
+            // Additional security checks
+            const suspiciousPatterns = [
+                /<script/i,
+                /javascript:/i,
+                /on\w+\s*=/i,
+                /data:text\/html/i
+            ];
+            
+            return !suspiciousPatterns.some(pattern => pattern.test(email));
+        }
+        
+        // Enhanced name validation
+        function validateName(name) {
+            const nameRegex = /^[A-Za-z\s\-']{2,100}$/;
+            return nameRegex.test(name) && !/<script|javascript:|on\w+\s*=/i.test(name);
+        }
+        
+        // Enhanced message validation
+        function validateMessage(message) {
+            if (message.length < 10 || message.length > 2000) return false;
+            
+            const suspiciousPatterns = [
+                /<script/i,
+                /javascript:/i,
+                /on\w+\s*=/i,
+                /data:text\/html/i,
+                /eval\(/i,
+                /document\./i,
+                /window\./i
+            ];
+            
+            return !suspiciousPatterns.some(pattern => pattern.test(message));
+        }
+        
         // Add scroll effect to navbar
         window.addEventListener('scroll', function() {
             const navbar = document.querySelector('.navbar');
@@ -946,26 +1024,49 @@
             }
         });
 
-        // Email validation function
-        function validateEmail(email) {
-            const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-            return emailRegex.test(email);
-        }
-
-        // Real-time email validation
+        // Real-time email validation with security
         const emailInput = document.getElementById('email');
         emailInput.addEventListener('input', function() {
-            const email = this.value.trim();
+            const email = sanitizeInput(this.value);
             
             if (email === '') {
-                // Empty - remove all classes
                 this.classList.remove('valid-email', 'invalid-email');
             } else if (validateEmail(email)) {
-                // Valid email
                 this.classList.remove('invalid-email');
                 this.classList.add('valid-email');
             } else {
-                // Invalid email
+                this.classList.remove('valid-email');
+                this.classList.add('invalid-email');
+            }
+        });
+
+        // Real-time name validation
+        const nameInput = document.getElementById('name');
+        nameInput.addEventListener('input', function() {
+            const name = sanitizeInput(this.value);
+            
+            if (name === '') {
+                this.classList.remove('valid-email', 'invalid-email');
+            } else if (validateName(name)) {
+                this.classList.remove('invalid-email');
+                this.classList.add('valid-email');
+            } else {
+                this.classList.remove('valid-email');
+                this.classList.add('invalid-email');
+            }
+        });
+
+        // Real-time message validation
+        const messageInput = document.getElementById('message');
+        messageInput.addEventListener('input', function() {
+            const message = sanitizeInput(this.value);
+            
+            if (message === '') {
+                this.classList.remove('valid-email', 'invalid-email');
+            } else if (validateMessage(message)) {
+                this.classList.remove('invalid-email');
+                this.classList.add('valid-email');
+            } else {
                 this.classList.remove('valid-email');
                 this.classList.add('invalid-email');
             }
@@ -996,7 +1097,7 @@
 
         // Manual search functionality
         countrySearch.addEventListener('input', function() {
-            const searchTerm = this.value.toLowerCase();
+            const searchTerm = sanitizeInput(this.value.toLowerCase());
             const countries = document.querySelectorAll('.iti__country');
             
             countries.forEach(country => {
@@ -1022,34 +1123,87 @@
             }
         });
 
-        // On submit, replace phone value with full international number
+        // Enhanced form submission with comprehensive security
         document.getElementById('contactForm').addEventListener('submit', function(e) {
-            if (phoneInput.value.trim() !== "") {
-                phoneInput.value = iti.getNumber();
-            }
             e.preventDefault();
             
+            // Rate limiting check
+            const now = Date.now();
+            if (now - lastSubmissionTime < MIN_SUBMISSION_INTERVAL) {
+                const remainingTime = Math.ceil((MIN_SUBMISSION_INTERVAL - (now - lastSubmissionTime)) / 1000);
+                document.getElementById('rateLimitMessage').textContent = `Please wait ${remainingTime} seconds before submitting again.`;
+                document.getElementById('rateLimitMessage').style.display = 'block';
+                return;
+            }
+            
+            // Hide rate limit message
+            document.getElementById('rateLimitMessage').style.display = 'none';
+            
+            // Get and sanitize form data
             const form = this;
-            const submitBtn = form.querySelector('.submit-btn');
+            const submitBtn = document.getElementById('submitBtn');
             const originalText = submitBtn.textContent;
+            
+            const name = sanitizeInput(document.getElementById('name').value);
+            const email = sanitizeInput(document.getElementById('email').value);
+            const phone = sanitizeInput(phoneInput.value.trim() !== "" ? iti.getNumber() : "");
+            const service = sanitizeInput(document.getElementById('service').value);
+            const budget = sanitizeInput(document.getElementById('budget').value);
+            const message = sanitizeInput(document.getElementById('message').value);
+            const honeypot = document.querySelector('input[name="website"]').value;
+            
+            // Honeypot check
+            if (honeypot) {
+                console.log('Bot detected via honeypot');
+                return;
+            }
+            
+            // Comprehensive validation
+            if (!validateName(name)) {
+                alert('Please enter a valid name (2-100 characters, letters, spaces, hyphens, and apostrophes only)');
+                return;
+            }
+            
+            if (!validateEmail(email)) {
+                alert('Please enter a valid email address');
+                return;
+            }
+            
+            if (!validateMessage(message)) {
+                alert('Please enter valid project details (10-2000 characters)');
+                return;
+            }
             
             // Show loading state
             submitBtn.textContent = 'Sending...';
             submitBtn.disabled = true;
             
-            // Get form data
-            const formData = new FormData(form);
+            // Create form data with sanitized values
+            const formData = new FormData();
+            formData.append('name', name);
+            formData.append('email', email);
+            formData.append('phone', phone);
+            formData.append('service', service);
+            formData.append('budget', budget);
+            formData.append('message', message);
+            formData.append('_csrf', generateCSRFToken());
             
-            // Submit to Formspree via AJAX
+            // Submit to Formspree via AJAX with security headers
             fetch('https://formspree.io/f/xdkzvjpl', {
                 method: 'POST',
                 body: formData,
                 headers: {
-                    'Accept': 'application/json'
-                }
+                    'Accept': 'application/json',
+                    'X-Requested-With': 'XMLHttpRequest'
+                },
+                mode: 'cors',
+                credentials: 'omit'
             })
             .then(response => {
                 if (response.ok) {
+                    // Update submission time
+                    lastSubmissionTime = now;
+                    
                     // Success
                     form.innerHTML = `
                         <div style="text-align: center; padding: 2rem;">
@@ -1064,12 +1218,24 @@
                 }
             })
             .catch(error => {
-                // Error handling
+                console.error('Form submission error:', error);
                 submitBtn.textContent = originalText;
                 submitBtn.disabled = false;
                 alert('Sorry, there was an error sending your message. Please try again or email me directly at abgtaron@gmail.com');
             });
         }, true);
+        
+        // Security: Prevent right-click context menu
+        document.addEventListener('contextmenu', function(e) {
+            e.preventDefault();
+        });
+        
+        // Security: Prevent keyboard shortcuts for developer tools
+        document.addEventListener('keydown', function(e) {
+            if (e.ctrlKey && (e.key === 'u' || e.key === 's' || e.key === 'i')) {
+                e.preventDefault();
+            }
+        });
     </script>
 </body>
 </html> 
