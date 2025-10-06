@@ -9,10 +9,10 @@
     <meta http-equiv="Referrer-Policy" content="strict-origin-when-cross-origin">
     <meta http-equiv="Permissions-Policy" content="geolocation=(), microphone=(), camera=()">
     <meta name="robots" content="index, follow">
-    <meta name="description" content="Taron Abgaryan - Professional Web Designer & Developer. Creating modern, responsive websites for businesses in North Hollywood, CA.">
-    <meta name="author" content="Taron Abgaryan">
-    <meta name="keywords" content="web design, web development, portfolio, freelancer, North Hollywood, CA">
-    <title>Taron Abgaryan - Web Designer & Developer</title>
+    <meta name="description" content="TA² - Professional Web Design & Development Agency. Creating modern, responsive websites for businesses.">
+    <meta name="author" content="TA²">
+    <meta name="keywords" content="web design, web development, business websites, TA², agency, North Hollywood, CA">
+    <title>TA² - Professional Web Design & Development Company</title>
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&family=Outfit:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -35,7 +35,7 @@
         .navbar {
             background: rgba(0, 0, 0, 0.4);
             backdrop-filter: blur(15px);
-            padding: 1rem 2rem;
+            padding: 0.5rem 2rem;
             position: fixed;
             top: 0;
             width: 100%;
@@ -60,6 +60,14 @@
             transition: all 1.5s ease;
             padding: 0.5rem 1rem;
             border-radius: 8px;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .logo img {
+            height: 72px;
+            width: auto;
         }
 
         .logo:hover {
@@ -91,7 +99,7 @@
         .nav-links {
             display: flex;
             list-style: none;
-            gap: 3rem;
+            gap: 2rem;
             align-items: center;
         }
 
@@ -99,9 +107,10 @@
             color: #fff;
             text-decoration: none;
             font-weight: 500;
-            margin-left: 2rem;
+            margin-left: 1rem;
             position: relative;
             transition: color 0.6s;
+            font-size: 0.9rem;
         }
 
         .nav-links a:hover {
@@ -111,12 +120,12 @@
         .instagram-link {
             display: flex;
             align-items: center;
-            padding: 0.5rem;
+            padding: 0.3rem;
         }
 
         .instagram-icon {
-            width: 24px;
-            height: 24px;
+            width: 20px;
+            height: 20px;
             filter: brightness(0) invert(1);
             transition: transform 0.3s;
         }
@@ -269,7 +278,7 @@
             letter-spacing: -0.02em;
         }
 
-        .hero h1 .name {
+        .hero h1 .company-name {
             font-size: 5.5rem;
             font-weight: 900;
             background: linear-gradient(135deg, #00d4ff, #0099cc, #00b8e6);
@@ -546,7 +555,7 @@
             }
         }
 
-        .freelance-hero {
+        .business-hero {
             color: #fff !important;
             background: rgba(0, 212, 255, 0.35);
             border-radius: 10px;
@@ -564,13 +573,14 @@
     <!-- Navigation -->
     <nav class="navbar">
         <div class="nav-container">
-            <a href="index.html" class="logo">TARON ABGARYAN</a>
+            <a href="index.html" class="logo">
+                <img src="Modern &quot;TA²&quot; Logo Design.png" alt="TA² Logo">
+            </a>
             <ul class="nav-links">
                 <li><a href="services.html">Services</a></li>
-                <li><a href="portfolio.html">Portfolio</a></li>
                 <li><a href="contact.html">Contact</a></li>
                 <li>
-                  <a href="https://www.instagram.com/taron_abg/" class="instagram-link" target="_blank" aria-label="Instagram">
+                  <a href="https://www.instagram.com/ta2websites/" class="instagram-link" target="_blank" aria-label="Instagram">
                     <img src="instagram.png" alt="Instagram" class="instagram-icon">
                   </a>
                 </li>
@@ -578,6 +588,7 @@
             <div class="mobile-menu-btn">
                 <img src="menu.png" alt="Menu" class="menu-icon">
             </div>
+            
         </div>
     </nav>
 
@@ -588,10 +599,9 @@
         </div>
         <ul class="mobile-menu-links">
             <li><a href="services.html">Services</a></li>
-            <li><a href="portfolio.html">Portfolio</a></li>
             <li><a href="contact.html">Contact</a></li>
             <li>
-                <a href="https://www.instagram.com/taron_abg/" target="_blank" aria-label="Instagram">
+                <a href="https://www.instagram.com/ta2websites/" target="_blank" aria-label="Instagram">
                     <img src="instagram.png" alt="Instagram" class="instagram-icon">
                     <span>Instagram</span>
                 </a>
@@ -602,12 +612,12 @@
     <!-- Hero Section -->
     <section class="hero">
         <div class="hero-content">
-            <h1>Web Designer & Developer</h1>
-            <h2 class="freelance-hero">Freelance Web Designer & Developer — Always Available for New Projects</h2>
-            <h2>Creating Modern, Responsive Websites</h2>
-            <p>I specialize in designing and developing professional websites that help businesses grow. From concept to launch, I deliver stunning, functional websites that drive results. Based in North Hollywood, I work with clients worldwide to create exceptional digital experiences.</p>
+            <h1>Professional Web Design & Development</h1>
+            <h2 class="business-hero">TA² — Professional Web Solutions Agency</h2>
+            <h2>Creating Modern, Responsive Websites for Businesses</h2>
+            <p>We are TA², a professional web design and development agency specializing in creating stunning, functional websites that help businesses grow and succeed online. From concept to launch, we deliver exceptional digital experiences that drive real results.</p>
             <div class="cta-buttons">
-                <a href="portfolio.html" class="cta-button">View My Work</a>
+                <a href="portfolio.html" class="cta-button">View Our Work</a>
                 <a href="contact.html" class="cta-button secondary">Get In Touch</a>
             </div>
         </div>
@@ -618,28 +628,30 @@
         <div class="container">
             <div class="about-grid">
                 <div class="about-content">
-                    <h2>About Me</h2>
-                    <h1>Hey, I'm <span class="name">TARON</span></h1>
-                    <p>I'm a passionate web designer and developer with a sharp eye for details and a love for creating beautiful, functional websites. With expertise in modern web technologies and design principles and an ambition to learn and advance in all my skills, I help businesses establish a strong online presence.</p>
-                    <p>My approach combines creative design with technical excellence, ensuring every website I create is not only visually stunning but also performs flawlessly across all devices.</p>
-                    <p>As a dedicated freelancer, I'm always available to help you bring your ideas to life.</p>
+                    <h2>About Us</h2>
+                    <h1>Meet <span class="name">TA²</span></h1>
+                    <p>We are TA², a dynamic web design and development agency that combines cutting-edge technology with exceptional design to create beautiful, functional websites that help businesses thrive online.</p>
+                    <p>Our approach combines creative design with technical excellence, ensuring every website we create is not only visually stunning but also performs flawlessly across all devices. We work closely with our clients to understand their unique needs and deliver solutions that exceed expectations.</p>
+                    <p>As a dedicated team, we're always ready to help bring your business ideas to life through exceptional web design and development.</p>
                     <div class="about-stats">
                         <div class="stat">
-                            <span class="stat-number">5+</span>
+                            <span class="stat-number">10+</span>
                             <span class="stat-label">Projects Completed</span>
                         </div>
                         <div class="stat">
-                            <span class="stat-number">6+</span>
-                            <span class="stat-label">Months Learning</span>
+                            <span class="stat-number">2</span>
+                            <span class="stat-label">Expert Developers</span>
                         </div>
                         <div class="stat">
                             <span class="stat-number">100%</span>
-                            <span class="stat-label">Dedication</span>
+                            <span class="stat-label">Client Satisfaction</span>
                         </div>
                     </div>
                 </div>
                 <div class="about-image">
-                    <div class="image-placeholder"></div>
+                    <div class="company-logo-large">
+                        <img src="Modern &quot;TA²&quot; Logo Design.png" alt="TA² Company Logo" style="width: 200px; height: auto;">
+                    </div>
                 </div>
             </div>
         </div>
@@ -649,9 +661,9 @@
     <footer class="footer">
         <div class="footer-content">
             <div class="footer-section">
-                <h3>Taron Abgaryan</h3>
-                <p>Professional web designer and developer creating modern, responsive websites that help businesses grow and succeed online.</p>
-                <p>Freelancer — Available for hire</p>
+                <h3>TA²</h3>
+                <p>Professional web design and development company creating modern, responsive websites that help businesses grow and succeed online.</p>
+                <p>Professional Agency — Available for new projects</p>
             </div>
             
             <div class="footer-section">
@@ -665,12 +677,12 @@
             
             <div class="footer-section">
                 <h3>Contact</h3>
-                <a href="https://www.instagram.com/taron_abg/" target="_blank" style="display: flex; align-items: center; gap: 0.5rem;">
+                <a href="https://www.instagram.com/ta2websites/" target="_blank" style="display: flex; align-items: center; gap: 0.5rem;">
                     Instagram
                     <img src="instagram.png" alt="Instagram" style="width: 16px; height: 16px; filter: brightness(0) invert(1);">
                 </a>
                 <p style="margin-top: 1rem; font-size: 0.9rem; color: #999;">
-                    abgtaron@gmail.com 📧<br>
+                    tasquaredwebsites@gmail.com 📧<br>
                     <a href="tel:+16262253435" style="color: #999; text-decoration: none;">(626) 225-3435 📱</a>
                     North Hollywood, CA 📍
                 </p>
@@ -678,7 +690,7 @@
         </div>
         
         <div class="footer-bottom">
-            <p>&copy; 2025 Taron Abgaryan. All rights reserved. | Web Designer & Developer</p>
+            <p>&copy; 2025 TA². All rights reserved. | Web Design & Development Company</p>
         </div>
     </footer>
 
