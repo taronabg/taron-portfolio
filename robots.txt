@@ -1,0 +1,8 @@
+User-agent: *
+Allow: /
+
+# Sitemap
+Sitemap: https://ta2websites.com/sitemap.xml
+
+# Disallow bad website folder
+Disallow: /bad-website-before/

@@ -5,14 +5,38 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-Content-Type-Options" content="nosniff">
     <meta http-equiv="X-Frame-Options" content="DENY">
+    <link rel="icon" type="image/png" href="Modern &quot;TA²&quot; Logo Design.png">
+    <link rel="apple-touch-icon" href="Modern &quot;TA²&quot; Logo Design.png">
     <meta http-equiv="X-XSS-Protection" content="1; mode=block">
     <meta http-equiv="Referrer-Policy" content="strict-origin-when-cross-origin">
     <meta http-equiv="Permissions-Policy" content="geolocation=(), microphone=(), camera=()">
-    <meta name="robots" content="index, follow">
-    <meta name="description" content="Professional Web Design & Development Services by TA². Custom websites, responsive design, and modern development.">
-    <meta name="author" content="TA²">
-    <meta name="keywords" content="web design services, web development, custom websites, responsive design, TA², agency">
-    <title>Services - TA² | Web Design & Development Company</title>
+    <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1">
+    <meta name="description" content="Professional Web Design & Development Services by TA² in North Hollywood, CA. Custom websites, responsive design, SEO optimization, e-commerce solutions, and modern web development. Get a free quote today.">
+    <meta name="author" content="TA² - Taron and Tigran">
+    <meta name="keywords" content="web design services, web development services, custom website design, responsive web design, SEO services, e-commerce websites, website maintenance, North Hollywood web design, Los Angeles web development, professional website design, modern web design, business website development, website redesign, mobile responsive design, WordPress development, custom web applications, TA² services">
+    <meta name="geo.region" content="US-CA">
+    <meta name="geo.placename" content="North Hollywood">
+    <meta name="geo.position" content="34.1722;-118.3790">
+    <meta name="ICBM" content="34.1722, -118.3790">
+    <meta name="language" content="English">
+    <link rel="canonical" href="https://ta2websites.com/services.html">
+    
+    <!-- Open Graph / Facebook -->
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://ta2websites.com/services.html">
+    <meta property="og:title" content="Web Design & Development Services | TA² | North Hollywood, CA">
+    <meta property="og:description" content="Professional web design and development services by TA². Custom websites, responsive design, SEO, e-commerce solutions, and modern web development in North Hollywood, CA.">
+    <meta property="og:image" content="https://ta2websites.com/Modern%20%22TA%C2%B2%22%20Logo%20Design.png">
+    <meta property="og:site_name" content="TA²">
+    
+    <!-- Twitter Card -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:url" content="https://ta2websites.com/services.html">
+    <meta name="twitter:title" content="Web Design & Development Services | TA²">
+    <meta name="twitter:description" content="Professional web design and development services. Custom websites, responsive design, SEO, and e-commerce solutions.">
+    <meta name="twitter:image" content="https://ta2websites.com/Modern%20%22TA%C2%B2%22%20Logo%20Design.png">
+    
+    <title>Web Design & Development Services | TA² | Custom Websites | North Hollywood, CA</title>
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -116,21 +140,30 @@
             color: #00d4ff;
         }
 
-        .instagram-link {
+        .instagram-link,
+        .tiktok-link {
             display: flex;
             align-items: center;
             padding: 0.5rem;
         }
 
-        .instagram-icon {
+        .instagram-icon,
+        .tiktok-icon {
             width: 24px;
             height: 24px;
             filter: brightness(0) invert(1);
             transition: transform 0.3s;
         }
 
-        .instagram-link:hover .instagram-icon {
+        .instagram-link:hover .instagram-icon,
+        .tiktok-link:hover .tiktok-icon {
             transform: scale(1.1);
+        }
+        
+        .social-links {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
         }
 
         /* Mobile Menu Styles */
@@ -357,6 +390,7 @@
             z-index: 2;
         }
 
+        .section-header h1,
         .section-header h2 {
             font-size: 3.5rem;
             margin-bottom: 1.5rem;
@@ -413,9 +447,26 @@
         }
 
         .service-icon {
-            font-size: 3rem;
+            width: 64px;
+            height: 64px;
             margin-bottom: 1.5rem;
-            display: block;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: linear-gradient(135deg, rgba(0, 212, 255, 0.1), rgba(0, 153, 204, 0.1));
+            border-radius: 12px;
+            border: 1px solid rgba(0, 212, 255, 0.2);
+        }
+        
+        .service-icon svg {
+            width: 32px;
+            height: 32px;
+            fill: #00d4ff;
+        }
+        
+        .service-icon svg[stroke] {
+            fill: none;
+            stroke: #00d4ff;
         }
 
         .service-card h3 {
@@ -445,6 +496,11 @@
             margin-bottom: 3rem;
             color: #fff;
             text-align: center;
+            font-weight: 800;
+            background: linear-gradient(135deg, #00d4ff, #0099cc);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
         }
 
         .process-grid {
@@ -455,15 +511,36 @@
 
         .process-step {
             text-align: center;
-            padding: 2rem;
+            padding: 2.5rem 2rem;
             background: rgba(255, 255, 255, 0.05);
             border-radius: 12px;
             border: 1px solid rgba(255, 255, 255, 0.1);
+            transition: all 0.3s ease;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .process-step::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 3px;
+            background: linear-gradient(90deg, #00d4ff, #0099cc);
+            transform: scaleX(0);
             transition: transform 0.3s ease;
         }
 
         .process-step:hover {
-            transform: translateY(-5px);
+            transform: translateY(-8px);
+            background: rgba(255, 255, 255, 0.08);
+            border-color: rgba(0, 212, 255, 0.3);
+            box-shadow: 0 15px 35px rgba(0, 212, 255, 0.15);
+        }
+
+        .process-step:hover::before {
+            transform: scaleX(1);
         }
 
         .step-number {
@@ -492,109 +569,6 @@
             line-height: 1.6;
         }
 
-        /* Pricing Section */
-        .pricing-section {
-            padding: 4rem 2rem;
-            background: rgba(255, 255, 255, 0.02);
-            border-radius: 12px;
-            margin: 4rem 0;
-            border: 1px solid rgba(255, 255, 255, 0.05);
-        }
-
-        .pricing-section h2 {
-            font-size: 2.5rem;
-            margin-bottom: 3rem;
-            color: #fff;
-            text-align: center;
-        }
-
-        .pricing-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 2rem;
-        }
-
-        .pricing-card {
-            background: rgba(255, 255, 255, 0.05);
-            padding: 2.5rem;
-            border-radius: 12px;
-            border: 1px solid rgba(255, 255, 255, 0.1);
-            text-align: center;
-            transition: all 0.3s ease;
-            position: relative;
-        }
-
-        .pricing-card:hover {
-            transform: translateY(-8px);
-            box-shadow: 0 20px 40px rgba(0, 212, 255, 0.2);
-            background: rgba(255, 255, 255, 0.08);
-        }
-
-        .pricing-card.featured {
-            border: 2px solid #00d4ff;
-            background: rgba(0, 212, 255, 0.05);
-        }
-
-        .pricing-card h3 {
-            font-size: 1.8rem;
-            margin-bottom: 1rem;
-            color: #fff;
-            font-weight: 600;
-        }
-
-        .price {
-            font-size: 3rem;
-            font-weight: 700;
-            color: #00d4ff;
-            margin-bottom: 1rem;
-        }
-
-        .price span {
-            font-size: 1rem;
-            color: #ccc;
-        }
-
-        .pricing-features {
-            list-style: none;
-            margin: 2rem 0;
-        }
-
-        .pricing-features li {
-            color: #ccc;
-            margin-bottom: 0.5rem;
-            padding: 0.5rem 0;
-            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
-        }
-
-        .pricing-features li:last-child {
-            border-bottom: none;
-        }
-
-        .pricing-button {
-            display: inline-block;
-            padding: 1rem 2rem;
-            background: linear-gradient(135deg, #00d4ff, #0099cc);
-            color: #000;
-            text-decoration: none;
-            border-radius: 8px;
-            font-weight: 600;
-            transition: all 0.3s ease;
-        }
-
-        .pricing-button:hover {
-            transform: translateY(-2px);
-            box-shadow: 0 10px 30px rgba(0, 212, 255, 0.3);
-        }
-
-        .pricing-button.secondary {
-            background: transparent;
-            color: #00d4ff;
-            border: 2px solid #00d4ff;
-        }
-
-        .pricing-button.secondary:hover {
-            background: rgba(0, 212, 255, 0.1);
-        }
 
         /* Footer */
         .footer {
@@ -684,16 +658,6 @@
                 padding: 0 0.5rem;
             }
             
-            .pricing-grid {
-                grid-template-columns: 1fr;
-                gap: 2rem;
-                padding: 0 0.5rem;
-            }
-
-            .pricing-card {
-                margin: 0;
-                padding: 2rem;
-            }
             
             .process-grid {
                 grid-template-columns: 1fr;
@@ -717,19 +681,74 @@
                 padding: 0 0.25rem;
             }
             
-            .pricing-grid {
-                padding: 0 0.25rem;
-            }
-
-            .pricing-card {
-                padding: 1.5rem;
-            }
 
             .container {
                 padding: 0 0.25rem;
             }
         }
     </style>
+    
+    <!-- Structured Data (JSON-LD) -->
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "Service",
+        "serviceType": "Web Design and Development",
+        "provider": {
+            "@type": "ProfessionalService",
+            "name": "TA²",
+            "url": "https://ta2websites.com",
+            "address": {
+                "@type": "PostalAddress",
+                "addressLocality": "North Hollywood",
+                "addressRegion": "CA",
+                "addressCountry": "US"
+            }
+        },
+        "areaServed": {
+            "@type": "City",
+            "name": "North Hollywood"
+        },
+        "hasOfferCatalog": {
+            "@type": "OfferCatalog",
+            "name": "Web Design and Development Services",
+            "itemListElement": [
+                {
+                    "@type": "Offer",
+                    "itemOffered": {
+                        "@type": "Service",
+                        "name": "Custom Website Design",
+                        "description": "Professional custom website design tailored to your business needs"
+                    }
+                },
+                {
+                    "@type": "Offer",
+                    "itemOffered": {
+                        "@type": "Service",
+                        "name": "Responsive Web Development",
+                        "description": "Mobile-responsive websites that work on all devices"
+                    }
+                },
+                {
+                    "@type": "Offer",
+                    "itemOffered": {
+                        "@type": "Service",
+                        "name": "SEO Optimization",
+                        "description": "Search engine optimization to improve your website's visibility"
+                    }
+                },
+                {
+                    "@type": "Offer",
+                    "itemOffered": {
+                        "@type": "Service",
+                        "name": "E-commerce Solutions",
+                        "description": "Online store development and e-commerce website solutions"
+                    }
+                }
+            ]
+        }
+    }
+    </script>
 </head>
 <body>
     <!-- Navigation -->
@@ -740,10 +759,16 @@
             </a>
             <ul class="nav-links">
                 <li><a href="services.html">Services</a></li>
+                <li><a href="portfolio.html">Portfolio</a></li>
                 <li><a href="contact.html">Contact</a></li>
-                <li>
-                  <a href="https://www.instagram.com/taron_abg/" class="instagram-link" target="_blank" aria-label="Instagram">
+                <li class="social-links">
+                  <a href="https://www.instagram.com/ta2websites/" class="instagram-link" target="_blank" aria-label="Instagram">
                     <img src="instagram.png" alt="Instagram" class="instagram-icon">
+                  </a>
+                  <a href="https://www.tiktok.com/@ta2websites" class="tiktok-link" target="_blank" aria-label="TikTok">
+                    <svg class="tiktok-icon" viewBox="0 0 24 24" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+                      <path d="M19.59 6.69a4.83 4.83 0 0 1-3.77-4.25V2h-3.45v13.67a2.89 2.89 0 0 1-5.2 1.74 2.89 2.89 0 0 1 2.31-4.64 2.93 2.93 0 0 1 .88.13V9.4a6.84 6.84 0 0 0-1-.05A6.33 6.33 0 0 0 5 20.1a6.34 6.34 0 0 0 10.86-4.43v-7a8.16 8.16 0 0 0 4.77 1.52v-3.4a4.85 4.85 0 0 1-1-.1z"/>
+                    </svg>
                   </a>
                 </li>
             </ul>
@@ -760,11 +785,20 @@
         </div>
         <ul class="mobile-menu-links">
             <li><a href="services.html">Services</a></li>
+            <li><a href="portfolio.html">Portfolio</a></li>
             <li><a href="contact.html">Contact</a></li>
             <li>
-                <a href="https://www.instagram.com/taron_abg/" target="_blank" aria-label="Instagram">
+                <a href="https://www.instagram.com/ta2websites/" target="_blank" aria-label="Instagram">
                     <img src="instagram.png" alt="Instagram" class="instagram-icon">
                     <span>Instagram</span>
+                </a>
+            </li>
+            <li>
+                <a href="https://www.tiktok.com/@ta2websites" target="_blank" aria-label="TikTok">
+                    <svg class="instagram-icon" viewBox="0 0 24 24" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+                      <path d="M19.59 6.69a4.83 4.83 0 0 1-3.77-4.25V2h-3.45v13.67a2.89 2.89 0 0 1-5.2 1.74 2.89 2.89 0 0 1 2.31-4.64 2.93 2.93 0 0 1 .88.13V9.4a6.84 6.84 0 0 0-1-.05A6.33 6.33 0 0 0 5 20.1a6.34 6.34 0 0 0 10.86-4.43v-7a8.16 8.16 0 0 0 4.77 1.52v-3.4a4.85 4.85 0 0 1-1-.1z"/>
+                    </svg>
+                    <span>TikTok</span>
                 </a>
             </li>
         </ul>
@@ -774,43 +808,75 @@
     <section class="services">
         <div class="container">
             <div class="section-header">
-                <h2>Our Services</h2>
+                <h1>Our Services</h1>
                 <p>Comprehensive web design and development solutions tailored to your business needs</p>
             </div>
             
             <div class="services-grid">
                 <div class="service-card">
-                    <span class="service-icon">🎨</span>
+                    <div class="service-icon">
+                        <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                            <path d="M12 2L2 7L12 12L22 7L12 2Z"/>
+                            <path d="M2 17L12 22L22 17"/>
+                            <path d="M2 12L12 17L22 12"/>
+                        </svg>
+                    </div>
                     <h3>Custom Website Design</h3>
                     <p>Create stunning, modern websites tailored to your brand. From one-page sites to multi-page businesses, we design beautiful interfaces that reflect your unique style and business goals.</p>
                 </div>
                 
                 <div class="service-card">
-                    <span class="service-icon">📱</span>
+                    <div class="service-icon">
+                        <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                            <rect x="5" y="2" width="14" height="20" rx="2" ry="2"/>
+                            <line x1="12" y1="18" x2="12" y2="18.01"/>
+                        </svg>
+                    </div>
                     <h3>Responsive Design</h3>
                     <p>Ensure your website looks perfect on all devices - desktop, tablet, and mobile. Every website we create is fully responsive and provides an optimal viewing experience across all screen sizes.</p>
                 </div>
                 
                 <div class="service-card">
-                    <span class="service-icon">⚡</span>
+                    <div class="service-icon">
+                        <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                            <polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"/>
+                        </svg>
+                    </div>
                     <h3>Performance Optimization</h3>
                     <p>Speed up your website with performance optimization techniques. We ensure fast loading times, smooth animations, and excellent user experience that keeps visitors engaged.</p>
                 </div>
                 
                 <div class="service-card">
-                    <span class="service-icon">🔍</span>
-                    <h3>Basic SEO</h3>
+                    <div class="service-icon">
+                        <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                            <circle cx="11" cy="11" r="8"/>
+                            <path d="M21 21L16.65 16.65"/>
+                        </svg>
+                    </div>
+                    <h3>SEO Optimization</h3>
                     <p>Improve your website's visibility in search engines with SEO best practices. We optimize your site structure, content, and performance to help you rank higher and attract more visitors.</p>
                 </div>
                 
                 <div class="service-card">
-                    <span class="service-icon">🛒</span>
+                    <div class="service-icon">
+                        <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                            <circle cx="9" cy="21" r="1"/>
+                            <circle cx="20" cy="21" r="1"/>
+                            <path d="M1 1h4l2.68 13.39a2 2 0 0 0 2 1.61h9.72a2 2 0 0 0 2-1.61L23 6H6"/>
+                        </svg>
+                    </div>
                     <h3>E-commerce Integration</h3>
                     <p>Add online shopping capabilities to your website. We can integrate e-commerce functionality for businesses that want to sell products or services directly through their website.</p>
                 </div>
                 
                 <div class="service-card">
-                    <span class="service-icon">📊</span>
+                    <div class="service-icon">
+                        <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                            <rect x="4" y="16" width="4" height="4" fill="#00d4ff"/>
+                            <rect x="10" y="12" width="4" height="8" fill="#00d4ff"/>
+                            <rect x="16" y="8" width="4" height="12" fill="#00d4ff"/>
+                        </svg>
+                    </div>
                     <h3>Analytics & Support</h3>
                     <p>Set up website analytics and provide ongoing support. We help you track your website's performance and offer maintenance services to keep your site running smoothly.</p>
                 </div>
@@ -821,122 +887,47 @@
     <!-- Process Section -->
     <section class="process-section">
         <div class="container">
-            <h2>My Process</h2>
+            <h2>Our Process</h2>
             <div class="process-grid">
                 <div class="process-step">
                     <div class="step-number">1</div>
                     <h3>Discovery</h3>
-                    <p>I start by understanding your business goals, target audience, and project requirements to create a tailored solution.</p>
+                    <p>We start by understanding your business goals, target audience, and project requirements to create a tailored solution.</p>
                 </div>
                 
                 <div class="process-step">
                     <div class="step-number">2</div>
                     <h3>Planning</h3>
-                    <p>I create a detailed project plan, wireframes, and design concepts to ensure we're aligned on the vision.</p>
+                    <p>We create a detailed project plan, wireframes, and design concepts to ensure we're aligned on the vision.</p>
                 </div>
                 
                 <div class="process-step">
                     <div class="step-number">3</div>
                     <h3>Design</h3>
-                    <p>I design beautiful, modern interfaces that reflect your brand and provide an exceptional user experience.</p>
+                    <p>We design beautiful, modern interfaces that reflect your brand and provide an exceptional user experience.</p>
                 </div>
                 
                 <div class="process-step">
                     <div class="step-number">4</div>
                     <h3>Development</h3>
-                    <p>I build your website using clean, efficient code and the latest web technologies for optimal performance.</p>
+                    <p>We build your website using clean, efficient code and the latest web technologies for optimal performance.</p>
                 </div>
                 
                 <div class="process-step">
                     <div class="step-number">5</div>
                     <h3>Testing</h3>
-                    <p>I thoroughly test your website across all devices and browsers to ensure everything works perfectly.</p>
+                    <p>We thoroughly test your website across all devices and browsers to ensure everything works perfectly.</p>
                 </div>
                 
                 <div class="process-step">
                     <div class="step-number">6</div>
                     <h3>Launch</h3>
-                    <p>I deploy your website and provide ongoing support to ensure it continues to perform at its best.</p>
+                    <p>We deploy your website and provide ongoing support to ensure it continues to perform at its best.</p>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- Pricing Section -->
-    <section class="pricing-section">
-        <div class="container">
-            <h2>Pricing Plans</h2>
-            <div class="pricing-grid">
-                <div class="pricing-card">
-                    <h3>Basic</h3>
-                    <div class="price">~$500<span>/project</span></div>
-                    <ul class="pricing-features">
-                        <li>✅ One-Page Website</li>
-                        <li>✅ Responsive Design</li>
-                        <li>✅ Contact Form</li>
-                        <li>✅ Basic SEO</li>
-                        <li>✅ 1 Revision</li>
-                    </ul>
-                    <ul class="pricing-features">
-                        <li style="color: #999;">❌ No Monthly Support</li>
-                        <li style="color: #999;">❌ Multiple Pages</li>
-                        <li style="color: #999;">❌ Custom Functionality</li>
-                        <li style="color: #999;">❌ Performance Optimization</li>
-                    </ul>
-                    <a href="contact.html" class="pricing-button">Get Started</a>
-                </div>
-                
-                <div class="pricing-card featured">
-                    <div style="background: linear-gradient(135deg, #00d4ff, #0099cc); color: #000; padding: 0.5rem 1rem; border-radius: 20px; font-size: 0.8rem; font-weight: 600; margin-bottom: 1rem; display: inline-block;">MOST POPULAR</div>
-                    <h3>Professional</h3>
-                    <div class="price">~$1,200<span>/project</span></div>
-                    <ul class="pricing-features">
-                        <li>✅ 3-5 Pages</li>
-                        <li>✅ Custom/Responsive Design</li>
-                        <li>✅ Performance Optimization</li>
-                        <li>✅ Basic SEO</li>
-                        <li>✅ 1 Month Free Support</li>
-                        <li>✅ $150/month (optional)</li>
-                        <li>✅ 3 Revisions</li>
-                        <li>✅ Content Management</li>
-                    </ul>
-                    <ul class="pricing-features">
-                        <li style="color: #999;">❌ E-commerce Integration</li>
-                        <li style="color: #999;">❌ Advanced SEO</li>
-                        <li style="color: #999;">❌ Priority Support</li>
-                        <li style="color: #999;">❌ Analytics Setup</li>
-                    </ul>
-                    <a href="contact.html" class="pricing-button">Get Started</a>
-                </div>
-                
-                <div class="pricing-card">
-                    <h3>Enterprise</h3>
-                    <div class="price">~$2,500<span>/project</span></div>
-                    <ul class="pricing-features">
-                        <li>✅ 10+ Pages</li>
-                        <li>✅ Custom Functionality</li>
-                        <li>✅ E-commerce Integration</li>
-                        <li>✅ Advanced SEO</li>
-                        <li>✅ 3 Months Free Support</li>
-                        <li>✅ $200/month (optional)</li>
-                        <li>✅ Priority Support</li>
-                        <li>✅ Analytics Setup</li>
-                    </ul>
-                    <a href="contact.html" class="pricing-button">Get Started</a>
-                </div>
-            </div>
-            
-            <div style="text-align: center; margin-top: 3rem; padding: 2rem; background: rgba(255, 255, 255, 0.05); border-radius: 16px; border: 1px solid rgba(255, 255, 255, 0.1);">
-                <h3 style="color: #00d4ff; margin-bottom: 1rem; font-size: 1.5rem;">Payment Terms & Options</h3>
-                <p style="color: #e0e0e0; margin-bottom: 1rem; line-height: 1.6;">
-                    <strong>Payment Terms:</strong> 50% upfront, 50% upon project completion
-                </p>
-                <p style="color: #e0e0e0; line-height: 1.6;">
-                    <strong>Payment Plans:</strong> Flexible payment plans available for larger projects. Contact me to discuss custom payment arrangements that work for your budget.
-                </p>
-            </div>
-        </div>
-    </section>
 
     <!-- Footer -->
     <footer class="footer">
@@ -951,20 +942,29 @@
                 <h3>Links</h3>
                 <a href="index.html">Home</a>
                 <a href="services.html">Services</a>
+                <a href="portfolio.html">Portfolio</a>
                 <a href="contact.html">Contact</a>
                 <a href="terms.html">Terms & Privacy</a>
             </div>
             
             <div class="footer-section">
                 <h3>Contact</h3>
-                <a href="https://www.instagram.com/taron_abg/" target="_blank" style="display: flex; align-items: center; gap: 0.5rem;">
-                    Instagram
-                    <img src="instagram.png" alt="Instagram" style="width: 16px; height: 16px; filter: brightness(0) invert(1);">
-                </a>
+                <div style="display: flex; flex-direction: column; gap: 0.5rem;">
+                    <a href="https://www.instagram.com/ta2websites/" target="_blank" style="display: flex; align-items: center; gap: 0.5rem;">
+                        Instagram
+                        <img src="instagram.png" alt="Instagram" style="width: 16px; height: 16px; filter: brightness(0) invert(1);">
+                    </a>
+                    <a href="https://www.tiktok.com/@ta2websites" target="_blank" style="display: flex; align-items: center; gap: 0.5rem;">
+                        TikTok
+                        <svg style="width: 16px; height: 16px; filter: brightness(0) invert(1);" viewBox="0 0 24 24" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+                          <path d="M19.59 6.69a4.83 4.83 0 0 1-3.77-4.25V2h-3.45v13.67a2.89 2.89 0 0 1-5.2 1.74 2.89 2.89 0 0 1 2.31-4.64 2.93 2.93 0 0 1 .88.13V9.4a6.84 6.84 0 0 0-1-.05A6.33 6.33 0 0 0 5 20.1a6.34 6.34 0 0 0 10.86-4.43v-7a8.16 8.16 0 0 0 4.77 1.52v-3.4a4.85 4.85 0 0 1-1-.1z"/>
+                        </svg>
+                    </a>
+                </div>
                 <p style="margin-top: 1rem; font-size: 0.9rem; color: #999;">
-                    abgtaron@gmail.com 📧<br>
-                    <a href="tel:+16262253435" style="color: #999; text-decoration: none;">(626) 225-3435 📱</a>
-                    North Hollywood, CA 📍
+                    tasquaredwebsites@gmail.com<br>
+                    <a href="tel:+16262253435" style="color: #999; text-decoration: none;">(626) 225-3435</a><br>
+                    North Hollywood, CA
                 </p>
             </div>
         </div>

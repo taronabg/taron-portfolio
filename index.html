@@ -5,14 +5,51 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-Content-Type-Options" content="nosniff">
     <meta http-equiv="X-Frame-Options" content="DENY">
+    <link rel="icon" type="image/png" href="Modern &quot;TA²&quot; Logo Design.png">
+    <link rel="apple-touch-icon" href="Modern &quot;TA²&quot; Logo Design.png">
     <meta http-equiv="X-XSS-Protection" content="1; mode=block">
     <meta http-equiv="Referrer-Policy" content="strict-origin-when-cross-origin">
     <meta http-equiv="Permissions-Policy" content="geolocation=(), microphone=(), camera=()">
-    <meta name="robots" content="index, follow">
-    <meta name="description" content="TA² - Professional Web Design & Development Agency. Creating modern, responsive websites for businesses.">
-    <meta name="author" content="TA²">
-    <meta name="keywords" content="web design, web development, business websites, TA², agency, North Hollywood, CA">
-    <title>TA² - Professional Web Design & Development Company</title>
+    <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1">
+    <meta name="description" content="TA² - Professional Web Design & Development Agency in North Hollywood, CA. Creating modern, responsive websites for businesses. Expert web design, custom development, and SEO services. Contact us for your next project.">
+    <meta name="author" content="TA² - Taron and Tigran">
+    <meta name="keywords" content="web design, web development, business websites, TA², web design agency, North Hollywood CA, Los Angeles web design, custom websites, responsive web design, website development, SEO services, professional web design, modern websites, web design company, website builder, e-commerce websites, portfolio websites, business website design">
+    <meta name="geo.region" content="US-CA">
+    <meta name="geo.placename" content="North Hollywood">
+    <meta name="geo.position" content="34.1722;-118.3790">
+    <meta name="ICBM" content="34.1722, -118.3790">
+    <meta name="language" content="English">
+    <meta name="revisit-after" content="7 days">
+    <meta name="distribution" content="global">
+    <meta name="rating" content="general">
+    <link rel="canonical" href="https://ta2websites.com/">
+    <link rel="sitemap" type="application/xml" href="https://ta2websites.com/sitemap.xml">
+    
+    <!-- Open Graph / Facebook -->
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://ta2websites.com/">
+    <meta property="og:title" content="TA² - Professional Web Design & Development Agency | North Hollywood, CA">
+    <meta property="og:description" content="TA² is a professional web design and development agency creating modern, responsive websites for businesses. Expert web design, custom development, and SEO services in North Hollywood, CA.">
+    <meta property="og:image" content="https://ta2websites.com/Modern%20%22TA%C2%B2%22%20Logo%20Design.png">
+    <meta property="og:image:width" content="1200">
+    <meta property="og:image:height" content="630">
+    <meta property="og:site_name" content="TA²">
+    <meta property="og:locale" content="en_US">
+    
+    <!-- Twitter Card -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:url" content="https://ta2websites.com/">
+    <meta name="twitter:title" content="TA² - Professional Web Design & Development Agency">
+    <meta name="twitter:description" content="Professional web design and development agency creating modern, responsive websites for businesses in North Hollywood, CA.">
+    <meta name="twitter:image" content="https://ta2websites.com/Modern%20%22TA%C2%B2%22%20Logo%20Design.png">
+    
+    <!-- Additional SEO -->
+    <meta name="apple-mobile-web-app-title" content="TA²">
+    <meta name="application-name" content="TA²">
+    <meta name="theme-color" content="#00d4ff">
+    <meta name="msapplication-TileColor" content="#00d4ff">
+    
+    <title>TA² - Professional Web Design & Development Agency | North Hollywood, CA | Custom Websites</title>
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&family=Outfit:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -117,21 +154,30 @@
             color: #00d4ff;
         }
 
-        .instagram-link {
+        .instagram-link,
+        .tiktok-link {
             display: flex;
             align-items: center;
             padding: 0.3rem;
         }
 
-        .instagram-icon {
+        .instagram-icon,
+        .tiktok-icon {
             width: 20px;
             height: 20px;
             filter: brightness(0) invert(1);
             transition: transform 0.3s;
         }
 
-        .instagram-link:hover .instagram-icon {
+        .instagram-link:hover .instagram-icon,
+        .tiktok-link:hover .tiktok-icon {
             transform: scale(1.1);
+        }
+        
+        .social-links {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
         }
 
         /* Mobile Menu Styles */
@@ -433,22 +479,6 @@
             align-items: center;
         }
 
-        .image-placeholder {
-            width: 300px;
-            height: 300px;
-            background: url('taron3.jpg');
-            background-size: cover;
-            background-position: 20% 30%;
-            border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-size: 2rem;
-            font-weight: 700;
-            color: #000;
-            box-shadow: 0 20px 40px rgba(0, 212, 255, 0.3);
-            border: 4px solid rgba(0, 212, 255, 0.3);
-        }
 
         /* Footer */
         .footer {
@@ -541,12 +571,6 @@
                 grid-template-columns: 1fr;
                 gap: 1rem;
             }
-            
-            .image-placeholder {
-                width: 250px;
-                height: 250px;
-                font-size: 1.5rem;
-            }
         }
 
         @media (max-width: 480px) {
@@ -572,6 +596,87 @@
             box-shadow: 0 2px 12px rgba(0,212,255,0.12);
         }
     </style>
+    
+    <!-- Structured Data (JSON-LD) -->
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "ProfessionalService",
+        "name": "TA²",
+        "alternateName": "TA Squared",
+        "url": "https://ta2websites.com",
+        "logo": "https://ta2websites.com/Modern%20%22TA%C2%B2%22%20Logo%20Design.png",
+        "description": "Professional web design and development agency creating modern, responsive websites for businesses in North Hollywood, CA.",
+        "address": {
+            "@type": "PostalAddress",
+            "addressLocality": "North Hollywood",
+            "addressRegion": "CA",
+            "addressCountry": "US"
+        },
+        "geo": {
+            "@type": "GeoCoordinates",
+            "latitude": "34.1722",
+            "longitude": "-118.3790"
+        },
+        "contactPoint": {
+            "@type": "ContactPoint",
+            "telephone": "+1-626-225-3435",
+            "contactType": "Customer Service",
+            "email": "tasquaredwebsites@gmail.com",
+            "areaServed": "US",
+            "availableLanguage": ["English"]
+        },
+        "sameAs": [
+            "https://www.instagram.com/ta2websites/",
+            "https://www.tiktok.com/@ta2websites"
+        ],
+        "priceRange": "$$",
+        "areaServed": {
+            "@type": "City",
+            "name": "North Hollywood",
+            "sameAs": "https://en.wikipedia.org/wiki/North_Hollywood,_Los_Angeles"
+        },
+        "serviceType": ["Web Design", "Web Development", "Website Development", "Responsive Web Design", "SEO Services"],
+        "aggregateRating": {
+            "@type": "AggregateRating",
+            "ratingValue": "5",
+            "reviewCount": "10"
+        }
+    }
+    </script>
+    
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "WebSite",
+        "name": "TA²",
+        "url": "https://ta2websites.com",
+        "potentialAction": {
+            "@type": "SearchAction",
+            "target": "https://ta2websites.com/?s={search_term_string}",
+            "query-input": "required name=search_term_string"
+        }
+    }
+    </script>
+    
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "Organization",
+        "name": "TA²",
+        "url": "https://ta2websites.com",
+        "logo": "https://ta2websites.com/Modern%20%22TA%C2%B2%22%20Logo%20Design.png",
+        "contactPoint": {
+            "@type": "ContactPoint",
+            "telephone": "+1-626-225-3435",
+            "contactType": "Customer Service",
+            "email": "tasquaredwebsites@gmail.com"
+        },
+        "sameAs": [
+            "https://www.instagram.com/ta2websites/"
+        ]
+    }
+    </script>
 </head>
 <body>
     <!-- Navigation -->
@@ -582,10 +687,16 @@
             </a>
             <ul class="nav-links">
                 <li><a href="services.html">Services</a></li>
+                <li><a href="portfolio.html">Portfolio</a></li>
                 <li><a href="contact.html">Contact</a></li>
-                <li>
+                <li class="social-links">
                   <a href="https://www.instagram.com/ta2websites/" class="instagram-link" target="_blank" aria-label="Instagram">
                     <img src="instagram.png" alt="Instagram" class="instagram-icon">
+                  </a>
+                  <a href="https://www.tiktok.com/@ta2websites" class="tiktok-link" target="_blank" aria-label="TikTok">
+                    <svg class="tiktok-icon" viewBox="0 0 24 24" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+                      <path d="M19.59 6.69a4.83 4.83 0 0 1-3.77-4.25V2h-3.45v13.67a2.89 2.89 0 0 1-5.2 1.74 2.89 2.89 0 0 1 2.31-4.64 2.93 2.93 0 0 1 .88.13V9.4a6.84 6.84 0 0 0-1-.05A6.33 6.33 0 0 0 5 20.1a6.34 6.34 0 0 0 10.86-4.43v-7a8.16 8.16 0 0 0 4.77 1.52v-3.4a4.85 4.85 0 0 1-1-.1z"/>
+                    </svg>
                   </a>
                 </li>
             </ul>
@@ -603,11 +714,20 @@
         </div>
         <ul class="mobile-menu-links">
             <li><a href="services.html">Services</a></li>
+            <li><a href="portfolio.html">Portfolio</a></li>
             <li><a href="contact.html">Contact</a></li>
             <li>
                 <a href="https://www.instagram.com/ta2websites/" target="_blank" aria-label="Instagram">
                     <img src="instagram.png" alt="Instagram" class="instagram-icon">
                     <span>Instagram</span>
+                </a>
+            </li>
+            <li>
+                <a href="https://www.tiktok.com/@ta2websites" target="_blank" aria-label="TikTok">
+                    <svg class="instagram-icon" viewBox="0 0 24 24" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+                      <path d="M19.59 6.69a4.83 4.83 0 0 1-3.77-4.25V2h-3.45v13.67a2.89 2.89 0 0 1-5.2 1.74 2.89 2.89 0 0 1 2.31-4.64 2.93 2.93 0 0 1 .88.13V9.4a6.84 6.84 0 0 0-1-.05A6.33 6.33 0 0 0 5 20.1a6.34 6.34 0 0 0 10.86-4.43v-7a8.16 8.16 0 0 0 4.77 1.52v-3.4a4.85 4.85 0 0 1-1-.1z"/>
+                    </svg>
+                    <span>TikTok</span>
                 </a>
             </li>
         </ul>
@@ -621,7 +741,7 @@
             <h2>Creating Modern, Responsive Websites for Businesses</h2>
             <p>We are TA², a professional web design and development agency specializing in creating stunning, functional websites that help businesses grow and succeed online. From concept to launch, we deliver exceptional digital experiences that drive real results.</p>
             <div class="cta-buttons">
-                <a href="services.html" class="cta-button">Our Services</a>
+                <a href="portfolio.html" class="cta-button">View Our Work</a>
                 <a href="contact.html" class="cta-button secondary">Get In Touch</a>
             </div>
         </div>
@@ -674,16 +794,25 @@
                 <h3>Links</h3>
                 <a href="index.html">Home</a>
                 <a href="services.html">Services</a>
+                <a href="portfolio.html">Portfolio</a>
                 <a href="contact.html">Contact</a>
                 <a href="terms.html">Terms & Privacy</a>
             </div>
             
             <div class="footer-section">
                 <h3>Contact</h3>
-                <a href="https://www.instagram.com/ta2websites/" target="_blank" style="display: flex; align-items: center; gap: 0.5rem;">
-                    Instagram
-                    <img src="instagram.png" alt="Instagram" style="width: 16px; height: 16px; filter: brightness(0) invert(1);">
-                </a>
+                <div style="display: flex; flex-direction: column; gap: 0.5rem;">
+                    <a href="https://www.instagram.com/ta2websites/" target="_blank" style="display: flex; align-items: center; gap: 0.5rem;">
+                        Instagram
+                        <img src="instagram.png" alt="Instagram" style="width: 16px; height: 16px; filter: brightness(0) invert(1);">
+                    </a>
+                    <a href="https://www.tiktok.com/@ta2websites" target="_blank" style="display: flex; align-items: center; gap: 0.5rem;">
+                        TikTok
+                        <svg style="width: 16px; height: 16px; filter: brightness(0) invert(1);" viewBox="0 0 24 24" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+                          <path d="M19.59 6.69a4.83 4.83 0 0 1-3.77-4.25V2h-3.45v13.67a2.89 2.89 0 0 1-5.2 1.74 2.89 2.89 0 0 1 2.31-4.64 2.93 2.93 0 0 1 .88.13V9.4a6.84 6.84 0 0 0-1-.05A6.33 6.33 0 0 0 5 20.1a6.34 6.34 0 0 0 10.86-4.43v-7a8.16 8.16 0 0 0 4.77 1.52v-3.4a4.85 4.85 0 0 1-1-.1z"/>
+                        </svg>
+                    </a>
+                </div>
                 <p style="margin-top: 1rem; font-size: 0.9rem; color: #999;">
                     tasquaredwebsites@gmail.com 📧<br>
                     <a href="tel:+16262253435" style="color: #999; text-decoration: none;">(626) 225-3435 📱</a>
