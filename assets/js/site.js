@@ -81,7 +81,7 @@
         .then(function (r) {
           if (!r.ok) throw new Error('Request failed');
           lastSubmit = now;
-          window.location.href = form.getAttribute('data-next') || 'thank-you.html';
+          window.location.href = form.getAttribute('data-next') || '/thank-you';
         })
         .catch(function () {
           if (button) { button.disabled = false; button.textContent = label; }
