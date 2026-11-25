@@ -1,0 +1,275 @@
+<!doctype html>
+<html lang="en">
+<head><meta name="robots" content="noindex,nofollow">
+<meta charset="utf-8">
+<title>Your Work Is Better Than Your Website · EVV Connect</title>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Schibsted+Grotesk:wght@400..700&family=Newsreader:ital,opsz,wght@0,6..72,400..600;1,6..72,400..500&display=swap">
+<style>
+/* Calm deck: warm paper, ink type, one green accent. One idea per slide. 1920x1080 stage scaled to the window. */
+:root{
+  --paper:#f5f1e8; --paper-2:#ebe5d8; --ink:#16232d; --soft:#5d6b75; --faint:#9aa3a8;
+  --green:#0b7a5c; --green-soft:#dcebe3; --mark:#f2d98a;
+  --sans:"Schibsted Grotesk","Helvetica Neue",Arial,sans-serif;
+  --serif:"Newsreader",Georgia,serif;
+}
+*{box-sizing:border-box;margin:0;padding:0}
+html,body{height:100%;background:#e9e4d9;overflow:hidden;font-family:var(--sans);color:var(--ink)}
+#stage{position:absolute;left:50%;top:50%;width:1920px;height:1080px;transform-origin:center center;overflow:hidden;background:var(--paper)}
+.slide{position:absolute;inset:0;display:none;padding:150px 180px;flex-direction:column;justify-content:center}
+.slide.on{display:flex;animation:in .5s ease-out}
+@keyframes in{from{opacity:0}to{opacity:1}}
+@media (prefers-reduced-motion:reduce){.slide.on{animation:none}}
+.foot{position:absolute;left:180px;right:180px;bottom:70px;display:flex;justify-content:space-between;font:500 22px/1 var(--sans);color:var(--faint);letter-spacing:.02em}
+
+.label{font:600 26px/1 var(--sans);color:var(--green);letter-spacing:.06em;margin-bottom:44px}
+h1{font:600 128px/1.02 var(--sans);letter-spacing:-.03em;max-width:1500px}
+h2{font:600 96px/1.06 var(--sans);letter-spacing:-.025em;max-width:1500px}
+h3{font:500 52px/1.2 var(--sans);letter-spacing:-.01em;color:var(--soft)}
+.g{color:var(--green)}
+.mk{background:linear-gradient(transparent 62%,var(--mark) 62%,var(--mark) 92%,transparent 92%)}
+.sub{font:400 44px/1.35 var(--sans);color:var(--soft);margin-top:40px;max-width:1300px}
+.quote{font:italic 400 88px/1.18 var(--serif);letter-spacing:-.01em;max-width:1500px}
+
+.row{display:flex;align-items:center;gap:140px}
+.col{flex:1;min-width:0}
+.phone{width:400px;flex:none;border-radius:52px;overflow:hidden;border:12px solid var(--ink);box-shadow:0 40px 90px -30px rgba(22,35,45,.45)}
+.phone img{display:block;width:100%}
+.photo{width:300px;height:360px;object-fit:cover;border-radius:24px}
+.name{font:600 30px/1.2 var(--sans);margin-top:22px}
+.role{font:400 24px/1.3 var(--sans);color:var(--soft);margin-top:6px}
+
+.facts{display:grid;grid-template-columns:auto 1fr;gap:34px 44px;align-items:baseline;margin-top:20px}
+.facts b{font:600 64px/1 var(--sans);color:var(--green);text-align:right}
+.facts span{font:400 42px/1.2 var(--sans)}
+
+.review{max-width:1400px}
+.stars{font-size:46px;color:#d99a00;letter-spacing:.12em;margin-bottom:40px}
+.review .who{font:600 34px/1.3 var(--sans);margin-top:56px}
+.review .who span{display:block;font-weight:400;color:var(--soft);font-size:28px}
+
+.list{list-style:none;margin-top:30px}
+.list li{font:400 50px/1.25 var(--sans);padding:26px 0;border-top:2px solid var(--paper-2);display:flex;gap:36px}
+.list li:last-child{border-bottom:2px solid var(--paper-2)}
+.list li i{font-style:normal;color:var(--green);font-weight:600;width:40px;flex:none}
+.bonus{margin-top:44px;font:500 34px/1.3 var(--sans);color:var(--green);background:var(--green-soft);display:inline-block;padding:20px 30px;border-radius:14px}
+
+.anchor{font:400 40px/1.5 var(--sans);color:var(--faint)}
+.anchor s{text-decoration-thickness:2px}
+.price-mid{font:500 64px/1.1 var(--sans);margin-top:46px;color:var(--soft)}
+.price-big{font:600 220px/1 var(--sans);letter-spacing:-.04em;color:var(--green);margin-top:24px}
+.price-big small{font:500 56px/1 var(--sans);letter-spacing:-.01em;color:var(--ink);margin-left:20px}
+.price-note{font:500 38px/1.3 var(--sans);margin-top:26px}
+
+.promise{margin-top:70px;padding:40px 48px;border-radius:20px;background:#fff;box-shadow:0 20px 60px -30px rgba(22,35,45,.35);font:500 46px/1.3 var(--sans);max-width:1400px;display:flex;gap:30px;align-items:center}
+.promise b{font-size:60px;color:var(--green)}
+
+.qrwrap{display:flex;gap:130px;align-items:center}
+.qr{width:560px;height:560px;background:#fff;padding:30px;border-radius:28px;box-shadow:0 30px 80px -30px rgba(22,35,45,.4);flex:none}
+.qr img{width:100%;height:100%;display:block}
+.bubble{background:#2b7cf6;color:#fff;font:400 38px/1.35 var(--sans);padding:26px 34px;border-radius:38px 38px 10px 38px;max-width:640px;margin-top:40px}
+.tel{font:600 84px/1 var(--sans);letter-spacing:-.02em;margin-top:50px}
+
+.center{align-items:center;text-align:center}
+.center h1,.center h2,.center .quote{margin:0 auto}
+
+#notes{position:fixed;left:0;right:0;bottom:0;max-height:45vh;overflow:auto;background:rgba(22,35,45,.97);color:#eef2f4;font:400 20px/1.5 var(--sans);padding:18px 28px;display:none;z-index:9}
+#notes p{margin:0 0 10px;max-width:1100px}#notes i{color:#9fb3bf}
+#notes b{color:var(--mark)}
+#hud{position:fixed;right:14px;top:10px;font:600 13px/1 var(--sans);color:rgba(22,35,45,.3);z-index:9}
+</style>
+</head>
+<body>
+<div id="stage">
+
+<section class="slide" data-id="title" data-note="Up while the hosts introduce you. Open on the room, the motto, your name, then the claim (M01–M07).">
+  <div class="row"><div class="col">
+    <div class="label">EVV Connect · Friendsgiving · Nov 25</div>
+    <h1>Your work is better than your website.</h1>
+    <p class="sub">Taron Abgaryan · TA² Websites</p>
+  </div><img class="photo" style="width:380px;height:470px" src="img/taron.jpg" alt="Taron Abgaryan"></div>
+</section>
+
+<section class="slide" data-id="thanks" data-note="M01–M07. Thank Jesus, Ana and Ariel.">
+  <div class="label">Thank you</div>
+  <div class="row" style="gap:70px;align-items:flex-end">
+    <div><img class="photo" src="img/jesus-lopez.jpg" alt="Jesus R. Lopez"><div class="name">Jesus R. Lopez</div></div>
+    <div><img class="photo" src="img/ana-pinedo.jpg" alt="Ana B. Pinedo"><div class="name">Ana B. Pinedo</div></div>
+    <div><img class="photo" src="img/ariel-sanchez.jpg" alt="Ariel Sanchez Sanchez"><div class="name">Ariel Sanchez Sanchez</div></div>
+    <div class="col"><h2 style="font-size:84px">For opening the room.</h2></div>
+  </div>
+</section>
+
+<section class="slide" data-id="built" data-note="M08–M09. Say it flat. Pause. Next click is the live site: switch to the EVV tab and share it.">
+  <h1>I built this group’s website.</h1>
+  <p class="sub">Almost nobody in this group has seen it yet.</p>
+</section>
+
+<section class="slide center" data-id="live" data-note="LIVE (M10–M26): share the EVV tab. Home → membership standards → directory → Jesus’s profile → Ana’s → Ariel’s. Say the address out loud: evvconnect.com. About two minutes. Backup: ~/Desktop/evv/EVV-Connect-Walkthrough.mp4. Come back here when done; next is who you are.">
+  <img src="img/logo-oval.png" alt="EVV Connect logo" style="width:340px;margin:0 auto 50px">
+  <h2>Live now</h2>
+  <p class="sub" style="margin:24px auto 0">evvconnect.com</p>
+</section>
+
+<section class="slide" data-id="me" data-note="M30–M32: Yerevan at 11, four languages, 15+ sites, Jesus was your first website client. “Remember them.”">
+  <div class="row"><div class="col">
+    <div class="label">Taron Abgaryan</div>
+    <div class="facts">
+      <b>11</b><span>Moved from Yerevan, Armenia</span>
+      <b>4</b><span>Languages</span>
+      <b>15+</b><span>Websites for local businesses</span>
+      <b>1</b><span>EVV Connect host · Marketing &amp; Web seat</span>
+    </div>
+  </div></div>
+</section>
+
+<section class="slide" data-id="hands" data-note="M33–M37. Show of hands, four questions: have a website / don’t / want one / like yours and can reach your designer. Say what you see.">
+  <h2>Who has a website?<br>Who likes theirs?</h2>
+</section>
+
+<section class="slide" data-id="belief" data-note="M38–M39: the one belief. Say it with me. Comes back after Dubon (M71).">
+  <h1>Everyone <span class="mk">looks you up</span> before they call.</h1>
+</section>
+
+<section class="slide" data-id="oneoffer" data-note="M40–M41. One offer at the end, price out loud, it starts free, one ask about the people you know. Is that fair?">
+  <h2>One offer at the end.</h2>
+  <p class="sub">And I’ll say the price out loud.</p>
+</section>
+
+<section class="slide" data-id="rule" data-note="M42–M45. The group’s own rule: you can’t join without these.">
+  <div class="label">To join EVV Connect</div>
+  <p class="quote">“A professional website for your business.”</p>
+  <p class="quote" style="margin-top:40px;color:var(--soft)">“A Google Business Profile with 5+ genuine reviews.”</p>
+</section>
+
+<section class="slide" data-id="worth" data-note="M46–M53. Ten seconds on a phone. “Shout it out: what’s one good job worth to you?” Repeat their numbers.">
+  <h2>What is one good job worth to you?</h2>
+  <p class="sub">That’s what rides on ten seconds on a phone.</p>
+</section>
+
+<section class="slide" data-id="rpr" data-note="M56–M60. RPR: came from a big website company that treated them poorly.">
+  <div class="row"><div class="col">
+    <div class="label">RPR Construction · Owensboro, KY</div>
+    <h2>They came from a big website company.</h2>
+  </div><div class="phone"><img src="img/rpr-phone.png" alt="RPR Construction website on a phone"></div></div>
+</section>
+
+<section class="slide" data-id="review" data-note="M63–M64. Read Austin’s review word for word, typos kept.">
+  <div class="review">
+    <div class="stars">★★★★★</div>
+    <p class="quote" style="font-size:72px">“Built my construction company’s website very professional and well built. very happy. If your looking to have a site built this is your guy”</p>
+    <div class="who">Austin Peay<span>Co-owner, RPR Construction · Google review</span></div>
+  </div>
+</section>
+
+<section class="slide" data-id="texts" data-note="M72–M75. Thursday, 10:34 PM. Read your text, then his replies word for word. Stop; say nothing over it.">
+  <div class="row" style="gap:90px">
+    <div style="flex:none;width:460px"><div class="label">Thursday · 10:34 PM</div><h2 style="font-size:80px">I sent Jesus the finished site.</h2></div>
+    <img src="img/jesus-reply.png" alt="Jesus’s text replies to the EVV site" style="max-height:800px;max-width:1000px;border-radius:24px;box-shadow:0 30px 80px -30px rgba(22,35,45,.45)">
+  </div>
+</section>
+
+<section class="slide" data-id="see" data-note="M76–M81. That’s how a busy owner buys. Permission line: “Would you like me to show you how you can see yours finished first?”">
+  <h2>He didn’t need it explained.</h2>
+  <h2 class="g">He needed to see it.</h2>
+</section>
+
+<section class="slide" data-id="offer" data-note="O01–O03. The EVV Founding Member Website. It starts free: text me, I design your whole site, 15-minute click-through, don’t love it, owe nothing.">
+  <div class="label">The EVV Founding Member Website</div>
+  <h1>Your whole website, designed before you pay.</h1>
+  <p class="sub">If you don’t love the design before you buy, you owe nothing.</p>
+</section>
+
+<section class="slide" data-id="stack" data-note="O04–O06. What you get. Bonuses: Facebook page, review kit, EVV profile (EVV profile only if Jesus said yes).">
+  <div class="label">If you love it</div>
+  <ul class="list">
+    <li><i>1</i>Live in 2–3 weeks</li>
+    <li><i>2</i>Google Business Profile set up</li>
+    <li><i>3</i>5 professional emails with your name</li>
+    <li><i>4</i>Hosting, plus 5 changes a month by text</li>
+    <li><i>5</i>Online payments set up, if your business takes them</li>
+    <li><i>6</i>Want to leave? Buy the website from me and take it with you.</li>
+  </ul>
+  <div class="bonus">Founding bonus: Facebook page · review kit · EVV profile</div>
+</section>
+
+<section class="slide" data-id="price" data-note="O07–O11. Price out loud. Town Square Media $350–550/mo → Hibu ~$500/mo → $3,000 → $2,500 founding, every year. Text by Dec 2. Half to start, half at launch.">
+  <div class="anchor">Town Square Media: <s>$350–$550 a month</s><br>Hibu: <s>about $500 a month</s>, and they keep your site</div>
+  <div class="price-mid">TA²: $3,000 a year, everything in</div>
+  <div class="price-big">$2,500<small>a year, every year</small></div>
+  <div class="price-note">EVV founding members · text by Wednesday, Dec 2</div>
+</section>
+
+<section class="slide" data-id="date" data-note="O12–O16, M110. Why a date: you build one at a time, Dec 2 texts are your December. 4 slots; late founders keep $2,500. The two-week promise. After Dec 2: $3,000, mockup still free.">
+  <h2>4 slots open for December.</h2>
+  <h3 style="margin-top:30px">Text by Dec 2 and your price is $2,500,<br>whenever I get to your project.</h3>
+  <div class="promise"><b>2</b><span>Live within two weeks of getting your photos, or your next year is on me.</span></div>
+</section>
+
+<section class="slide" data-id="partners" data-note="10b · M93–M97, then M111t (“Whatever you decide, I’m going to be just fine, trust me.”). 8-A ($200 per client who signs) on screen by default; press T for 8-B (terms one to one).">
+  <h2>Know someone whose work is better than their website?</h2>
+  <p class="sub">Text me their name. I design them a free mockup, and it comes from you.</p>
+  <p class="sub" style="color:var(--green);font-weight:500"><span class="v8b" hidden>And yes, I pay a referral fee. Terms one to one.</span><span class="v8a">If they sign, that's $200 in your pocket.</span></p>
+</section>
+
+<section class="slide" data-id="motto" data-note="M125–M126: the motto. “So we’re the somebodies.” Then the QR.">
+  <p class="quote" style="font-size:104px">“We know somebody that knows somebody that knows somebody.”</p>
+  <p class="sub">EVV Connect</p>
+</section>
+
+<section class="slide" data-id="qr" data-note="M128 to the end. Phones out. Host’s test text lands: read the name. 60 seconds of quiet; first names as texts land (“Got yours, [Name].”). Leave up through Q&A. Price answer: “$3,000 a year, everything in. $2,500 for founding members who text by December 2nd, and it stays $2,500 every year.”">
+  <div class="qrwrap">
+    <div class="qr"><img src="img/qr.svg" alt="QR code that opens a text to Taron"></div>
+    <div>
+      <div class="label">Point your camera here</div>
+      <h2 style="font-size:84px">One text. For you, or someone you know.</h2>
+      <div class="bubble" style="max-width:none">Hi Taron, it’s ___ from EVV.<br>Mockup for: me / someone I know</div>
+      <div class="tel">(626) 225-3435</div>
+    </div>
+  </div>
+</section>
+
+<section class="slide" data-id="join" data-note="The hosts' membership ask, after Q&A. Leave up while they talk.">
+  <div class="qrwrap">
+    <div class="qr"><img src="img/evv-join-qr.png" alt="QR code that opens evvconnect.com/join"></div>
+    <div>
+      <div class="label">Become a member tonight</div>
+      <h2 style="font-size:84px">Join EVV Connect. $300 a year.</h2>
+      <p class="sub" style="margin-top:22px">Your business in the directory, referrals from members, a seat at every gathering.</p>
+      <div class="tel">evvconnect.com/join</div>
+      <p class="sub" style="margin-top:34px;font-size:34px">No website yet? Membership asks for one. Text Taron: <b>(626) 225-3435</b></p>
+    </div>
+  </div>
+</section>
+
+</div>
+<div id="notes"></div><div id="hud"></div>
+<script>
+// Click order for the 15-minute talk (FINAL-15.md). "belief" comes back once after Dubon.
+const SCRIPT=["<p><i>Up while Jesus, Ana and Ariel introduce you. Title: \"Your work is better than your website.\"</i></p>", "<p>Jesus, Ana, Ariel, thank you. Everybody, happy Friendsgiving.</p><p>Think of it. Somebody in this room leans over tonight and says, \"You need a contractor? Call my guy.\"</p><p>What is the very first thing you do?</p><p>You don't call. You pull out your phone, and you look him up.</p><p>Every person here lives on that moment. It's the words this group stands on: We know somebody that knows somebody that knows somebody.</p><p>My name is Taron Abgaryan. I build what people find in that moment: websites for contractors and local businesses.</p>", "<p>I built this group's website.</p><p>And almost nobody in this group has seen it yet.</p>", "<p><i>Share the EVV site tab. Backup: ~/Desktop/evv/EVV-Connect-Walkthrough.mp4 in a second tab.</i></p><p>This is it. This is real, I'm clicking it.</p><p>Here, I'll refresh the page, so you know it's not a video. <i>[refresh]</i></p><p>EVV Connect. That's your line, right at the top.</p><p>This is the directory. Every member gets a profile. Your trade, your town, how to reach you.</p><p>Here's the first one. Jesus R. Lopez, Modern Home Projects.</p><p>And Ana B. Pinedo, Catanese Real Estate.</p><p>And Ariel Sanchez Sanchez, who runs The Rooftop, the room you're sitting in tonight.</p><p>Three names in it tonight. Yours goes here next.</p><p>Everybody, give it up for Jesus and Ana for starting this group, and Ariel for hosting us tonight. <i>[stop talking until the applause ends]</i></p><p>And one last page. This is the membership page. Look at what it says you need to join. <i>[pause, let them read]</i></p><p>\"A professional website for your business.\" And \"A Google Business Profile with 5+ genuine reviews.\"</p><p>Jesus and Ana wrote that rule. Hold on to it. I'm coming back to it in a minute.</p><p>It's live right now at evvconnect.com. Pull it up on your phone.</p>", "<p><i>Stop sharing. Back to the deck.</i></p><p>I was born in Yerevan, Armenia, and I moved to the United States when I was eleven. I speak English, Armenian, Russian and Spanish.</p><p>I'm one of the hosts of this group, and I hold its Marketing &amp; Web seat, so I'm one of you. I've built more than fifteen websites for contractors and local businesses, and my first client is in that room with you. <i>[pause; the room turns to look]</i> Jesus.</p><p>This fall, Jesus sent me a construction company that a big website company had treated poorly. Remember them.</p>", "<p>Now some of you are already thinking, \"I don't need a website. All my work comes from referrals.\"</p><p>I know. That's exactly why this is for you. Referrals are the reason it matters. Stay with me two minutes and I'll show you.</p><p>Quick show of hands. Who here has a website? <i>[pause]</i> Who doesn't? <i>[pause]</i> Who'd like one? <i>[pause]</i></p><p>Now, if you have one, keep your hand up if you like it. <i>[pause]</i> And keep it up if you can text your designer today and get a change made this week. <i>[say what you see, e.g. \"Not many hands left.\"]</i></p><p>Look around. That's why I'm here tonight.</p>", "<p>So here's the one thing I want you to remember tonight. Everyone looks you up before they call.</p><p>Say it with me. Everyone looks you up before they call.</p>", "<p>And let me tell you right now, I'm going to make one offer at the end, and I'll tell you the price out loud. I'd rather get it out of the way so you can enjoy the night.</p><p>It starts free. And I'll ask you one thing about the people you know. That's it. Is that fair?</p>", "<p>Remember that rule on the membership page?</p><p>Think about that. Jesus and Ana could've made the rule anything. They made it that. Why would a referral group require a website?</p><p>Because they know. When someone in this room says \"call my guy,\" the first thing that person does is look your guy up.</p>", "<p>So picture it. You send your neighbor to a deck builder you love. Best work in Evansville. Your neighbor types his name into Google.</p><p>And one of two things comes up. A real website with his jobs and his face and a button to call. Or nothing. An old Facebook page. A listing with no pictures.</p><p>Same contractor. Same work. Same referral from you. Which one does your neighbor call?</p><p>Right. People don't hire the best contractor. They hire the one who looks best when they look him up.</p><p>And here's the part nobody says out loud. When your neighbor looks up the guy you sent and finds nothing, it doesn't only make him look bad. It makes you look bad. You put your name on him.</p><p>Now let me ask you something, and just shout it out. What's one good job worth to you? One deck, one closing, one case, one wedding. Shout it out.</p><p>\"I heard [number]. [number]. Somebody said [number].\"</p><p>Those numbers you just said? That's what's riding on ten seconds on a phone. Every time.</p>", "<p>Now the second thing I hear. \"I paid for a website before, and I got nothing.\"</p><p>Maybe that company just wasn't any good. Sure. But also maybe you never saw the site before you paid for it, and nobody picked up the phone after.</p><p>Remember the construction company I told you about? This is them. RPR Construction, Owensboro, Kentucky. Jesse and Austin.</p><p>So they'd been burned once, and they weren't in a hurry to get burned again.</p><p>So I did what I do for everybody. I designed their whole website first, every page, with their real jobs on it, before they paid me anything. They clicked through it, and they liked it.</p>", "<p>Here's what Austin wrote on Google. I'm going to read it exactly the way he wrote it.</p><p>\"Built my construction company's website very professional and well built. very happy. If your looking to have a site built this is your guy.\"</p><p>You want to know who sent them to me? <i>[pause]</i> Jesus.</p>", "<p>Everyone looks you up before they call.</p>", "<p>Last Thursday, 10:34 at night, I'm at my desk, and I text Jesus: \"You're not gonna believe it lol. I already built it. Well I just finished. Check it out.\" And the link.</p><p>No price, no pitch. Just the whole EVV Connect site, finished, with his name and Ana's on it.</p><p>Jesus has a contracting company to run, and he coaches other contractors. Nobody in that position builds a website for thirty people after a full day's work.</p><p>Then the texts come in. <i>[read them off the screenshot exactly as he wrote them; the emojis are on screen, say the words]</i> \"Broooo\" · \"Looks amazing!!!\" · \"I am sorry i miss your text, I am working on something and I have my phone on: \"Do Not Disturb\"\" · \"Looks awesome!!!\" · \"I ABSOLUTELY LOVE IT BROTHER! thank you!!!!!\" · \"Let's Get it!\" <i>[stop; say nothing over it]</i></p>", "<p>That's how a busy owner buys. He didn't need it explained. He needed to see it.</p><p>Would you like me to show you how you can see yours finished first, for you, or for somebody you know?</p><p>Okay.</p>", "<p>Here's what I'm offering this room. It's called the EVV Founding Member Website.</p><p>It starts free. Text me, and I design your whole website first. Every page, your real work, your town.</p><p>We hop on a 15-minute call, you click through it like it's live, and if you don't love the design before you buy, you owe nothing.</p>", "<p>If you do, here's what you get. Your site, built from scratch, live in two to three weeks. Your Google Business Profile set up. Five professional emails with your business name. Hosting, upkeep, and up to five changes a month: you text me, and it's done.</p><p>And if your business takes payments, I set up online payments so customers can pay you by card. I did that for EVV Connect this week. It's how you'll join tonight.</p><p>I structure your website for growth. Every page is built to make it easy for a customer to call you, book you, or pay you.</p><p>And you're never stuck with me. Some of you have been with a company where you leave and your website stays with them. RPR came to me from one of those. Here, if you ever want to leave, you buy the website out from me and take everything with you.</p><p>For founding members I'm adding the rest of what this group asks for: your Facebook business page, a simple way to get your customers' reviews in, and your EVV directory profile, built and linked to your site. <i>(Cut \"and your EVV directory profile, built and linked to your site\" if Jesus hasn't said yes.)</i></p>", "<p>Now, price. I'm going to say it out loud, because the number one thing I hear is \"nobody ever tells you the price.\"</p><p>Town Square Media charges $350 to $550 a month for a website. Hibu charges around $500 a month. That's $4,200 to $6,600 a year, every year, and when you stop paying, the site stays with them.</p><p>Mine is $3,000 a year, everything in, and it doesn't go up when you renew.</p><p>For founding members of EVV Connect, the people here tonight, it's $2,500 a year. Not just the first year. Every year you keep it. The price you start at is the price you keep.</p><p>Half to start, half the day it goes live.</p><p>And if your company needs more, like more pages, booking, an online store, or a CRM to track your leads and customers, I have bigger packages. Grab me after and we'll talk.</p>", "<p>I build every site myself, one at a time. So I have four slots open for December, and they go in the order your texts come in.</p><p>And if you're number five, or number ten, that's okay. As long as you text me by Wednesday, December 2nd, your price is $2,500 whenever I get to your project.</p><p>And here's my promise. If your site isn't live within two weeks of me getting your photos, your next year is on me.</p><p>And so you know that's real: RPR Construction signed October 30th and went live November 11th.</p><p>After December 2nd it's $3,000. The mockup is still free, and you still see your whole site before you pay a dollar.</p><p>And if I look at your business and honestly don't think a website would help you, I'll tell you, and I won't take your money. Because that would make me look bad. In front of you, and in front of Jesus.</p>", "<p>And for the people you know. Every one of you knows a contractor whose work is better than their website. Text me their name.</p><p>I'll design them a free full mockup, and it comes from you. They never asked for it; you're the one who thought of them. You look good, I do the work.</p><p>You make the intro. That's it. I handle everything after, including the price. You never sell anything and you never promise anything.</p><p>If they sign, that's $200 in your pocket. Every client who signs, $200.</p><p>And if they don't love it, they owe nothing. Your name never costs your friend a dollar.</p><p>And look, whatever you decide, I'm going to be just fine, trust me.</p>", "<p>Here's the last thing. Your motto is \"We know somebody that knows somebody that knows somebody.\"</p><p>So we're the somebodies. The people people call when they need a name. And when we send somebody a name, we want that name to make us look good.</p>", "<p>So here's the one ask.</p><p>Phones out. Point your camera at this code. It opens a text to me that's already written: \"Hi Taron, it's blank from EVV. Mockup for: me, or someone I know.\" Put your name in, keep the one that's true, hit send.</p><p>Camera won't scan? The number's right under it. 626-225-3435.</p><p>Here's what happens when you send it. <i>[a host's test text lands on your phone, live; read the name out]</i> That's it. I answer every one of these myself, tonight.</p><p>You said it with me tonight: everyone looks you up before they call. So send it now, while the code's on the screen, because the four slots go in the order your texts come in.</p><p>Jesus, Ana, Ariel, give everyone one minute. I'll be quiet, and I'll just say the names as they come in.</p><p><i>[60 seconds of quiet, broken only by first names as texts land: \"Got yours, [Name].\" Nothing else.]</i></p><p>One more thing I want to do before I wrap up and go to questions. Jesus, would you mind taking 30 seconds and just telling the group what it was like to work with me?</p><p><i>[Jesus talks. Say nothing over him. Then:]</i> Thank you, Jesus.</p><p><b>Q&amp;A</b></p><p>Okay, let me answer the four questions I always get, and then I'll take yours.</p><p>Number one. \"What's it going to cost? Nobody ever tells you the price.\"</p><p>$3,000 a year, everything in. $2,500 for founding members who text by December 2nd, and it stays $2,500 every year you keep it. And you see your whole site before you pay a dollar.</p><p>Number two. \"Am I going to get locked into a contract?\"</p><p>No monthly contract. There's nothing to sign until you've seen your finished site and you like it.</p><p>Number three. \"If I ever leave, do I lose my website?\"</p><p>No. If you ever leave, you buy the website out from me, and everything goes with you. Your name, your domain, your photos.</p><p>Number four. \"Is it just going to be a template?\"</p><p>No. Every site I build is designed from scratch around the business it's for. You saw this group's site and you saw RPR's. They look nothing alike, because they're not the same business.</p><p>Okay, your turn. What questions do you have? And if you just texted me, I'll answer you by name right now.</p><p>[Name], I just got yours. <i>[read the first name and \"me\" or \"someone I know\"; reply to every one that night]</i></p>", "<p><i>After Q&amp;A, press → for the hosts. This is their membership ask, not yours.</i></p><p>And remember, membership asks for a professional website. If you don't have one yet, my number is right there at the bottom.</p><p>Jesus, Ana, Ariel, over to you.</p><p><i>[Stop talking. Leave the code up while they ask the room to join.]</i></p>"];
+const ORDER=["title","thanks","built","live","me","hands","belief","oneoffer","rule","worth","rpr","review","belief","texts","see","offer","stack","price","date","partners","motto","qr","join"];
+const map={};document.querySelectorAll('.slide').forEach(s=>map[s.dataset.id]=s);
+let i=0;
+const notes=document.getElementById('notes'),hud=document.getElementById('hud');
+function fit(){const st=document.getElementById('stage');const k=Math.min(innerWidth/1920,innerHeight/1080);st.style.transform=`translate(-50%,-50%) scale(${k})`}
+const NTFY_TOPIC='evvnotes-e24314efd886';
+function bc(){try{fetch('https://ntfy.sh/'+NTFY_TOPIC,{method:'POST',body:String(i)}).catch(()=>{})}catch(e){}}
+let pw=null;
+function pv(){if(!pw||pw.closed)return;const d=pw.document;const nx=SCRIPT[i+1]?SCRIPT[i+1].replace(/<[^>]+>/g,' ').trim().slice(0,90)+'…':'(last slide)';d.getElementById('c').textContent=`${i+1} / ${ORDER.length}`;d.getElementById('t').innerHTML=SCRIPT[i]||'';d.getElementById('x').textContent='Next: '+nx;d.getElementById('t').scrollTop=0}
+function openPV(){pw=window.open('','evvnotes','width=1100,height=800');if(!pw)return;pw.document.open();pw.document.write(`<!doctype html><title>Speaker notes</title><style>html,body{margin:0;background:#000;color:#f2f2f2;font-family:-apple-system,Helvetica,sans-serif}#c{position:fixed;top:8px;right:16px;color:#888;font-size:20px}#t{height:calc(100vh - 70px);overflow:auto;padding:24px 48px 0;font-size:var(--fs,40px);line-height:1.35}#t p{margin:0 0 .55em}#t i{color:#e0a526;font-size:.6em}#x{position:fixed;bottom:0;left:0;right:0;padding:14px 48px;color:#777;font-size:20px;background:#000;border-top:1px solid #222}</style><div id=c></div><div id=t></div><div id=x></div><script>let fs=40;addEventListener('keydown',e=>{if(e.key==='='||e.key==='+'){fs+=4}else if(e.key==='-'){fs=Math.max(20,fs-4)}else if(e.key==='ArrowDown'){document.getElementById('t').scrollBy(0,120);return}else if(e.key==='ArrowUp'){document.getElementById('t').scrollBy(0,-120);return}else{if(opener)opener.dispatchEvent(new KeyboardEvent('keydown',{key:e.key}));return}document.documentElement.style.setProperty('--fs',fs+'px')})<\/script>`);pw.document.close();pv()}
+function show(n){i=Math.max(0,Math.min(ORDER.length-1,n));document.querySelectorAll('.slide.on').forEach(s=>s.classList.remove('on'));const s=map[ORDER[i]];s.classList.add('on');notes.innerHTML=`<b>${i+1}/${ORDER.length}</b>${SCRIPT[i]||''}`;notes.scrollTop=0;hud.textContent=`${i+1}/${ORDER.length}`;try{history.replaceState(null,'','#'+(i+1))}catch(e){}pv();bc()}
+addEventListener('keydown',e=>{
+  if(['ArrowRight','ArrowDown',' ','PageDown','Enter'].includes(e.key)){e.preventDefault();show(i+1)}
+  else if(['ArrowLeft','ArrowUp','PageUp','Backspace'].includes(e.key)){e.preventDefault();show(i-1)}
+  else if(e.key==='n'||e.key==='N'){notes.style.display=notes.style.display==='block'?'none':'block'}
+  else if(e.key==='f'||e.key==='F'){document.fullscreenElement?document.exitFullscreen():document.documentElement.requestFullscreen().catch(()=>{})}
+  else if(e.key==='t'||e.key==='T'){document.querySelectorAll('.v8a,.v8b').forEach(x=>x.hidden=!x.hidden)}
+  else if(e.key==='p'||e.key==='P'){openPV()}
+  else if(e.key==='Home'){show(0)}else if(e.key==='End'){show(ORDER.length-1)}
+});
+addEventListener('click',e=>{if(e.clientX>innerWidth/3)show(i+1);else show(i-1)});
+addEventListener('resize',fit);fit();show((parseInt(location.hash.slice(1))||1)-1);
+</script>
+</body>
+</html>
